@@ -19,16 +19,10 @@ TYPE DoodleBug::getType()
  * Ant::eat()
  * gets the type of critter
  **************************************************/
-void DoodleBug::eat(vector<shared_ptr<Ant>>& bugCollection)
+void DoodleBug::eat(Ant* inAntLocation)
 {
-    //bugCollection[inRow][inColumn].clear();
-    //However if we move the Doodle bug to the ant location the ant should be removed anyways? So no real need to eat? or clear ant?
-    //vector shared pointers c++ library  http://www.cplusplus.com/reference/vector/vector
-    if(bugCollection[row][column]->getType() == ANT)
-    {
-        bugCollection[row][column].clear();
-    };
-    move();
+    delete inAntLocation;
+    
 }
 /*********************************************************
  * Critter::move
@@ -36,16 +30,13 @@ void DoodleBug::eat(vector<shared_ptr<Ant>>& bugCollection)
  * changing its position
  * place the Doodle at its new position.
  ****************************************************/
-void Critter::move()
+void Critter::move(int inRow, int inColumn)
 {
-    int row, column; // Direction of motion
-    
-    //draw();  - this could be place method for bug?
-    
-    // Compute the new postion for the shape by adding a step in
-    // the proper direction to the current position
-    getDirection(dRow, dCol);
-    rowPos += row;
-    colPos += column;
+    //could randomize here
+    getPostion(inRow,inColumn);  //not sure if this is just an unnecessary step
+    //do checks for a doodle bug
+    setPosition(inRow,inColumn);
+  //maybe call eat? change to take in row, column? or 2D array?
     
 }
+

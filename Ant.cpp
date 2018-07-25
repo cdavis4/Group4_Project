@@ -50,5 +50,12 @@ void Ant::move(int &inRow, int &inColumn)
     //do checks then
     setPosition(inRow,inColumn);
     survival++; //update that the ant has survived to move again
-    
+    /* could call breed from here
+    int babyrow = inRow; int babycolumn = inColumn
+    if(survival >= 3)
+    {
+     //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
+     breed(2DArraylocation);
+    }
+    */
 }
