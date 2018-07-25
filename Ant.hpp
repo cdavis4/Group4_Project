@@ -11,19 +11,24 @@
 #include "Critter.hpp"
 class Ant: public Critter
 {
-protected:
- 
+private:
+      // counts steps
+    int survive = 0;
+
 public:
     
-    Ant(int inRow, int inColumn):Critter(row, column)
+    Ant(int inRow, int inColumn, int inSurvive):Critter(row, column)
     {
+        survive = inSurvive;
         
     }
     Ant();
-    void move();
+    void move(int&, int&);
     Ant* breed(int, int);
-    TYPE getType();
-   
+    TYPE getType(); 
+    void setSurvive(int);
+    int getSurvive();
+    
     
     
     

@@ -9,7 +9,8 @@ using namespace std;
 //Default Constructor
 Critter::Critter()
 {
-
+    this->row = 0;
+    this->column = 0;
 }
 /*************************************************************
  * Critter::move
@@ -30,23 +31,34 @@ void Critter::move()
     colPos += column;
 
 }
-/********************************************************
- * Critter::getDirection
- * gets Direction the critter should travel
- ********************************************************/
-void Critter::getDirection(int& inRow, int& inColumn)
+/*********************************************************
+ * Critter::move
+ * Moves critter one step at its current position
+ * changing its position
+ * place the Doodle at its new position.
+ ****************************************************/
+void Critter::move(int inRow, int inColumn)
 {
-    inColumn = column;   //input values will be set to the direction
-                        //row and column that the bug should move
-    inRow = row;
+    setPosition(inRow,inColumn);
 }
-/********************************************************
- * Critter::setDirection
- * sets Direction the critter should travel
- ********************************************************/
-void Critter::setDirection(int& inRow, int& inColumn)
+/*************************************************
+ * Ant::setPosition()
+ * sets the row and column ant located
+ **************************************************/
+void Critter::setPosition(int inRow, int Column)
 {
-    column = inColumn;  //setting the location the bug should travel
     row = inRow;
+    column = inColumn;
 }
+
+/*************************************************
+ * Ant::getSurvive()
+ * gets survival days of Ant
+ **************************************************/
+void Critter::setSurvive(int inSurvive)
+{
+    survive = inSurvive;
+}
+
+
 
