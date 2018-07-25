@@ -8,6 +8,8 @@
 
 using namespace std;
 
+enum TYPE{DOODLE,ANT,NONE}; // type of animals that can be added
+
 class Critter
 {
 protected:
@@ -21,6 +23,9 @@ protected:
     //these are maybe set constant? shouldn't change
     void getDirection(int, int);
     void setDirection(int&, int&);
-    
+public:
+    virtual TYPE getType() {return NONE;}
+    Ant();
+    Ant(int inRow, int inColumn);
 };
 #endif /* Critter_hpp */
