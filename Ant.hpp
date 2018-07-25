@@ -23,6 +23,7 @@ public:
     void move();
     Ant* breed(int, int);
     TYPE getType();
+   
     
     
     
