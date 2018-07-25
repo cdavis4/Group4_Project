@@ -16,33 +16,39 @@ TYPE Ant::getType()
 }
 
 /*************************************************
+ * Ant::getSurvive()
+ * gets survival days of Ant
+ **************************************************/
+int Ant::getSurvive()
+{
+    return survive;
+}
+
+/*************************************************
  * Ant::breed()
  * gets the type of critter
  **************************************************/
 Ant* Ant::breed(int inRow, int inColumn)
 {
+
     Ant* babyAnt;
-    babyAnt = new Ant(inRow,inColumn);
+    babyAnt = new Ant(inRow,inColumn,0);  // zero represents survival
     
     return babyAnt;
+ 
 }
-/*******************************************************
+/***************
  * Ant::move
  * Moves critter one step at its current position
  * changing its position
- * redrawing the ant at its new position.
- ******************************************************/
-void Ant::move()
+ * place the Doodle at its new position.
+ ****************************************************/
+void Ant::move(int &inRow, int &inColumn)
 {
-    int row, column; // Direction of motion
-    
-    //draw();  - this could be place method for bug?
-    
-    // Compute the new postion for the shape by adding a step in
-    // the proper direction to the current position
-    getDirection(dRow, dCol);
-    rowPos += row;
-    colPos += column;
+    //could randomize here
+    getPostion(inRow,inColumn);  //not sure if this is just an unnecessary step
+    //do checks then
+    setPosition(inRow,inColumn);
+    survival++; //update that the ant has survived to move again
     
 }
-

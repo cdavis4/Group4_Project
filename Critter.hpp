@@ -17,15 +17,14 @@ protected:
     int row;
     int column;
 
-    virtual void move(); //virutal function
-   //member function prototypes
+    virtual void move(int, int); //virutal function
     
-    //these are maybe set constant? shouldn't change
-    void getDirection(int, int);
-    void setDirection(int&, int&);
+    //updated these
+    void getPosition(int&,int&);
+    void setPosition(int, int);
 public:
     virtual TYPE getType() {return NONE;}
-    Ant();
-    Ant(int inRow, int inColumn);
+    Critter();
+    Critter(int inRow, int inColumn);
 };
 #endif /* Critter_hpp */
