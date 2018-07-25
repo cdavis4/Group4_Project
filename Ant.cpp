@@ -19,7 +19,7 @@ TYPE Ant::getType()
  * Ant::breed()
  * gets the type of critter
  **************************************************/
-Ant* Ant::bread(int inRow, int inColumn)
+Ant* Ant::breed(int inRow, int inColumn)
 {
     Ant* babyAnt;
     babyAnt = new Ant(inRow,inColumn);
@@ -45,3 +45,4 @@ void Ant::move()
     colPos += column;
     
 }
+
