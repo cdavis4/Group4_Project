@@ -19,8 +19,8 @@ public:
         
     }
     DoodleBug();
-    void move(); //Same as ant
-    void eat(vector<shared_ptr<Ant>>&);  // use getType of surrounding vector Critters to determine if ANT. Then call eat on that object pointer to Critter. Input needs to be the vector reference so it can clear it. could start with North,NorthEast,East, etc. eat first ANT encountered. or could eat all?
+    void move(int&, int&); //Same as ant except no survive
+    void eat(int, int);  //now this should just get Ant* and delete.
     TYPE getType();
     
 };
