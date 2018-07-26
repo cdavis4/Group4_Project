@@ -16,7 +16,9 @@ protected:
   //use with friends and derived
     int row;
     int column;
+	int survive;
 
+	virtual void move();
     virtual void move(int, int); //virutal function
     
     //updated these
@@ -26,5 +28,6 @@ public:
     virtual TYPE getType() {return NONE;}
     Critter();
     Critter(int inRow, int inColumn);
+	void setSurvive(int);
 };
 #endif /* Critter_hpp */
