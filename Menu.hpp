@@ -11,12 +11,21 @@ class Menu
 		int question;
 		int maxAnt;
 		int maxDoodle;
+		int steps;
+		int row;
+		int col;
+		int ants;
+		int doodlebugs; 
 		
 	
 	public:
 		Menu();
-		void mainMenu();
 		int inputVal();
+		int getSteps();
+		int getRow();
+		int getCol();
+		int getAnts();
+		int getDoodlebugs();
 
 
 };
