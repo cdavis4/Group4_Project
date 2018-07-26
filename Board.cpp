@@ -8,6 +8,7 @@ Board::Board(int row, int col)
 	for(int i = 0; i < col; i++)
 	{
 		boardArray[i] = new Critter*;
+		*boardArray[i] = Critter;
 	}
 	
 }
