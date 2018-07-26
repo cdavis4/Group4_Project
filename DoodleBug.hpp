@@ -11,7 +11,7 @@
 #include "Critter.hpp"
 #include "Ant.hpp"
 // doodlebug needs to inherit from Critter, not Ant
-class DoodleBug: public Critter //(ME: fixed extra colon -> it was Doodlebug:: not Doodlebug:
+class DoodleBug: public Critter 
 {
 protected:
 
