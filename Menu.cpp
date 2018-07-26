@@ -17,6 +17,7 @@
 #include <ctime>
 
 #include "Menu.hpp"
+#include "Board.hpp"
 
 using std::cout;
 using std::endl;
@@ -118,11 +119,9 @@ Menu::Menu()
 			getline(cin, choice);
 		}
 	}
-	cout << "Input test worked!" << endl;
-	cout << "Number of time steps: " << steps << endl;
-	cout << "Grid size: " << row << " x " << col << endl;
-	cout << "Number of ants: " << ants << endl;
-	cout << "Number of doodlebugs: " << doodlebugs << endl;
+	
+	// Instantiate Board object here using constructor that takes row and col
+	Board board(row, col);
 
 }
 
