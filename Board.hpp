@@ -1,3 +1,11 @@
+#ifndef Board_hpp
+#define Board_hpp
+#include "DoodleBug.hpp"
+#include "Ant.hpp"
+#include "Critter.hpp"
+#include "Menu.hpp"
+#include <stdio.h>
+#include <iostream>
 class Board
 {
 	private:
@@ -9,3 +17,4 @@ class Board
 	friend class Ant;
 	friend class Doodlebug;
 };
+#endif
