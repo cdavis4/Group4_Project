@@ -19,6 +19,7 @@
 #include "Menu.hpp"
 #include "Board.hpp"
 
+
 using std::cout;
 using std::endl;
 using std::cin;
@@ -121,8 +122,13 @@ Menu::Menu()
 	}
 	
 	// Instantiate Board object here using constructor that takes row and col
-	// Uncomment the following to use this idea:
-	// Board board(row, col);
+	
+	Board board1(row, col);
+	board1.setSteps(steps);
+	board1.setAnts(ants);
+	board1.setDoodleBugs(doodlebugs);
+	board1.placeCritters();
+	board1.print();
 
 }
 

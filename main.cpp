@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 #include "Menu.hpp"
 #include "Board.hpp"
@@ -8,11 +10,11 @@ using namespace std;
 
 int main()
 {	
+
+	unsigned seed = time(0);
+	srand(seed);
+	
+
 	Menu menu;
-	int ants = menu.getAnts();
-	int doodlebugs = menu.getDoodlebugs();
-	int steps = menu.getSteps();
-	int row = menu.getRow();
-	int col = menu.getCol();
-	Board board1(row, col);
+	
 }
