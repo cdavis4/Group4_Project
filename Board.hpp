@@ -17,6 +17,7 @@ class Board
 	Board();
 	Board(int row, int column);
 	void print();
+	void freeMemory();
 	
 	friend class Critter;
 	friend class Ant;
