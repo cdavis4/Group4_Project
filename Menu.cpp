@@ -27,36 +27,15 @@ using std::stringstream;
 
 /*******************************************************************
  * 				No-args Menu constructor
- * This constructor is used to initialize the question and
- * userInput member variables and to call the mainMenu function.  
- * It does not take any parameters.  
+ * This constructor is used to initialize all the member
+ * variables and user inputs. It does not take any parameters.  
  ******************************************************************/
 Menu::Menu()
 {	
 	question = 1;
-	userInput = "";
-	mainMenu();
 	
-}
-
-
-/*******************************************************************
- * 						mainMenu
- * This function takes no parameters and returns nothing (void).  
- * It presents the main options to the user. The user can choose
- * the number of time steps, the number of rows, the number of 
- * columns, the number of ants to start with, and the number 
- * of doodlebugs.
- ******************************************************************/
-void Menu::mainMenu()
-{
-	// variables only used by mainMenu function
+	// variable only used by mainMenu function
 	string choice;
-	int steps;
-	int row;
-	int col;
-	int ants;
-	int doodlebugs;
 	
 	
 	cout << "********************************************************************" << endl;
@@ -144,7 +123,39 @@ void Menu::mainMenu()
 	cout << "Grid size: " << row << " x " << col << endl;
 	cout << "Number of ants: " << ants << endl;
 	cout << "Number of doodlebugs: " << doodlebugs << endl;
+
+}
+
+
+
+// steps getter
+int Menu::getSteps()
+{
+	return steps;
+}
+
+// row getter
+int Menu::getRow()
+{
+	return row;
+}
 	
+// col getter	
+int Menu::getCol()
+{
+	return col;
+}
+
+// ants getter
+int Menu::getAnts()
+{
+	return ants;
+}
+
+// doodlebugs getter
+int Menu::getDoodlebugs()
+{
+	return doodlebugs;
 }
 
 
