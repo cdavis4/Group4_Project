@@ -121,7 +121,8 @@ Menu::Menu()
 	}
 	
 	// Instantiate Board object here using constructor that takes row and col
-	Board board(row, col);
+	// Uncomment the following to use this idea:
+	// Board board(row, col);
 
 }
 
