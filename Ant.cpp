@@ -6,6 +6,10 @@
 
 #include "Ant.hpp"
 
+
+Ant::Ant()
+{}
+
 /*************************************************
  * Ant::getType()
  * gets the type of critter
@@ -14,6 +18,7 @@ TYPE Ant::getType()
 {
     return ANT;
 }
+
 
 /*************************************************
  * Ant::getSurvive()
@@ -46,11 +51,12 @@ Ant* Ant::breed(int inRow, int inColumn)
 void Ant::move(int &inRow, int &inColumn)
 {
     //could randomize here
-    getPostion(inRow,inColumn);  //not sure if this is just an unnecessary step
+	// COMMENTED THIS OUT TEMPORARILY UNTIL WE HAVE IT WORKING - Patrick 5:17pm 7/26
+    //getPosition(inRow,inColumn);  //not sure if this is just an unnecessary step 
     //do checks then
     setPosition(inRow,inColumn);
-    survival++; //update that the ant has survived to move again
-    /* could call breed from here
+    survive++; //update that the ant has survived to move again 
+    /* could call breed from here 
     int babyrow = inRow; int babycolumn = inColumn
     if(survival >= 3)
     {
