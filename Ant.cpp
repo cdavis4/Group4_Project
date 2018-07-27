@@ -63,5 +63,390 @@ void Ant::move(int &inRow, int &inColumn)
      //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
      breed(2DArraylocation);
     }
-    */
+    void Ant::move(int &inRow, int &inColumn, int row, int col)
+	{
+		Critter*** cBoard = board.getBoardArray();
+		Critter *antTemp = **cBoard;
+		
+		if(inRow == 0)
+		{
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			bool flag3 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			{	if( move == 1)
+			{//Move west
+				if (cBoard[inRow][inColumn-1] == NULL)
+				{
+					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move south
+					if (cBoard[inRow+1][inColumn] == NULL)
+					{
+						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag2 = true;
+					}
+				}
+				if(move ==3)
+				{//Move east
+					if (cBoard[inRow][inColumn+1] == NULL)
+					{
+						cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag3 = true;
+					}
+				}
+			}
+		}
+		else if ( inRow == board.getRow())
+		{
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			bool flag3 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			{	if( move == 1)
+			{//Move west
+				if (cBoard[inRow][inColumn-1] == NULL)
+				{
+					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move north
+					if (cBoard[inRow-1][inColumn] == NULL)
+					{
+						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 3;
+						flag2 = true;
+					}
+				}
+				if(move ==3)
+				{//Move east
+					if (cBoard[inRow][inColumn+1] == NULL)
+					{
+						cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag3 = true;
+					}
+				}
+			}
+		}
+		
+		
+		else if (inColumn == 0)
+		{
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			bool flag3 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			{	if( move == 1)
+			{//Move east
+				if (cBoard[inRow][inColumn+1] == NULL)
+				{
+					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move south
+					if (cBoard[inRow+1][inColumn] == NULL)
+					{
+						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 3;
+						flag2 = true;
+					}
+				}
+				if(move ==3)
+				{//Move north
+					if (cBoard[inRow-1][inColumn] == NULL)
+					{
+						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag3 = true;
+					}
+				}
+			}
+		}
+		
+		
+		else if (inColumn == board.getCol())
+		{
+			
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			bool flag3 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			{	if( move == 1)
+			{//Move west
+				if (cBoard[inRow][inColumn-1] == NULL)
+				{
+					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move south
+					if (cBoard[inRow+1][inColumn] == NULL)
+					{
+						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 3;
+						flag2 = true;
+					}
+				}
+				if(move ==3)
+				{//Move north
+					if (cBoard[inRow-1][inColumn] == NULL)
+					{
+						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag3 = true;
+					}
+				}
+			}
+		}
+		else if (inRow == 0 && inColumn == 0)
+		{
+			
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false))
+			{	if( move == 1)
+			{//Move east
+				if (cBoard[inRow][inColumn+1] == NULL)
+				{
+					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move south
+					if (cBoard[inRow+1][inColumn] == NULL)
+					{
+						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag2 = true;
+					}
+				}
+			}
+		}
+		else if (inRow == 0 && inColumn == board.getCol())
+		{
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false))
+			{	if( move == 1)
+			{//Move west
+				if (cBoard[inRow][inColumn-1] == NULL)
+				{
+					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				if (move == 2)
+				{//Move south
+					if (cBoard[inRow+1][inColumn] == NULL)
+					{
+						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag2 = true;
+					}
+				}
+			}
+		}
+		else if(inRow == board.getRow() && inColumn == 0)
+		{
+			
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false))
+			{	if( move == 1)
+			{//Move east
+				if (cBoard[inRow][inColumn+1] == NULL)
+				{
+					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				
+				if(move ==2)
+				{//Move north
+					if (cBoard[inRow-1][inColumn] == NULL)
+					{
+						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag2 = true;
+					}
+				}
+			}
+			
+		}
+		else if (inRow == board.getRow() && inColumn == board.getCol())
+		{
+			
+			bool searchFlag = true;
+			bool flag1 = false;
+			bool flag2 = false;
+			int move = rand()%3;
+			while(searchFlag == true || (flag1 == false || flag2 == false))
+			{	if( move == 1)
+			{//Move west
+				if (cBoard[inRow][inColumn-1] == NULL)
+				{
+					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
+					delete []cBoard[inRow][inColumn];
+					flag1 = true;
+					searchFlag = false;
+				}
+				else
+				{
+					move = 2;
+					flag1 = true;
+				}
+			}
+				
+				if(move ==2)
+				{//Move north
+					if (cBoard[inRow-1][inColumn] == NULL)
+					{
+						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
+						delete []cBoard[inRow][inColumn];
+						searchFlag = false;
+					}
+					else
+					{
+						move = 1;
+						flag2 = true;
+					}
+				}
+			}
+		}
+		
 }
+
+
+
+
+}*/
