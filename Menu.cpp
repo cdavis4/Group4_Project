@@ -1,5 +1,5 @@
 /********************************************************************************
-** Author: Group 4
+** Author: Patrick Byrne
 ** Date: 7/24/2018
 ** Description: Menu class function implementation file.
 **        This file describes a Menu class that creates
@@ -123,12 +123,15 @@ Menu::Menu()
 	
 	// Instantiate Board object here using constructor that takes row and col
 	
+	
 	Board board1(row, col);
 	board1.setSteps(steps);
 	board1.setAnts(ants);
 	board1.setDoodleBugs(doodlebugs);
 	board1.placeCritters();
 	board1.print();
+	//cBoard = board1.getBoardArray();
+	board1.turn();
 	
 	/*for(int i =0; i < steps; i++)
 	{for(int i = 0; i < row; i++)
