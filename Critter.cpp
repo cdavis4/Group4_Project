@@ -11,8 +11,8 @@ Critter::Critter()
 {
     this->row = 0;
     this->column = 0;
-	survive = 0;
-	moveCount = 0;
+    survive = 0;
+    moveCount = 0;
 }
 
 
@@ -20,7 +20,7 @@ Critter::Critter(int inRow, int inColumn)
 {
     this->row = inRow;
     this->column = inColumn;
-	survive = 0;
+    survive = 0;
 }
 
 
@@ -62,7 +62,10 @@ void Critter::move(int inRow, int inColumn)
     setPosition(inRow,inColumn);
 }
 
-
+void Critter::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
+{
+	// to be overridden in the derived class
+}
 
 /*************************************************
  * Ant::setPosition()
@@ -83,5 +86,8 @@ void Critter::setSurvive(int inSurvive)
     survive = inSurvive;
 }
 
-
+void Critter::resetMoveCount()
+{
+	moveCount = 0;
+}
 
