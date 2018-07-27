@@ -152,3 +152,7 @@ Board::~Board()
 
 
 
+Critter*** Board::getBoardArray()
+{
+	return boardArray;
+}
