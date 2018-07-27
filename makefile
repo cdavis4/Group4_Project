@@ -22,5 +22,8 @@ DoodleBug.o:	DoodleBug.cpp DoodleBug.hpp
 Menu.o:	Menu.cpp Menu.hpp
 	$(CXX)	$(CFLAGS) -c Menu.cpp
 
+Board.o:	Board.cpp Board.hpp
+	$(CXX)	$(CFLAGS) -c Board.cpp
+
 clean:
 	rm -f main main.o Critter.o Ant.o DoodleBug.o Menu.o Board.o
