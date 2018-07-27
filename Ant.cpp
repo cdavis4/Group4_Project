@@ -63,11 +63,13 @@ void Ant::move(int &inRow, int &inColumn)
      //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
      breed(2DArraylocation);
     }
-    void Ant::move(int &inRow, int &inColumn, int row, int col)
+   void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 	{
-		Critter*** cBoard = board.getBoardArray();
-		Critter *antTemp = **cBoard;
-		
+		row--;
+		col--;
+		//Critter *antTemp = **cBoard;
+		unsigned seed = time(0);
+		srand(seed);
 		if(inRow == 0)
 		{
 			bool searchFlag = true;
@@ -75,13 +77,13 @@ void Ant::move(int &inRow, int &inColumn)
 			bool flag2 = false;
 			bool flag3 = false;
 			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			while(searchFlag == true)
 			{	if( move == 1)
 			{//Move west
-				if (cBoard[inRow][inColumn-1] == NULL)
+				if (cBoard[inRow][inColumn-1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -93,10 +95,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move south
-					if (cBoard[inRow+1][inColumn] == NULL)
+					if (cBoard[inRow+1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+						//delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -107,10 +109,10 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 				if(move ==3)
 				{//Move east
-					if (cBoard[inRow][inColumn+1] == NULL)
+					if (cBoard[inRow][inColumn+1] == NULL && flag3 == false)
 					{
-						cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						//delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -121,20 +123,20 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 			}
 		}
-		else if ( inRow == board.getRow())
+		else if ( inRow == row)
 		{
 			bool searchFlag = true;
 			bool flag1 = false;
 			bool flag2 = false;
 			bool flag3 = false;
 			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			while(searchFlag == true)
 			{	if( move == 1)
 			{//Move west
-				if (cBoard[inRow][inColumn-1] == NULL)
+				if (cBoard[inRow][inColumn-1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -146,10 +148,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move north
-					if (cBoard[inRow-1][inColumn] == NULL)
+					if (cBoard[inRow-1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+						//delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -160,10 +162,10 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 				if(move ==3)
 				{//Move east
-					if (cBoard[inRow][inColumn+1] == NULL)
+					if (cBoard[inRow][inColumn+1] == NULL && flag3== false)
 					{
-						cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						//delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -183,13 +185,13 @@ void Ant::move(int &inRow, int &inColumn)
 			bool flag2 = false;
 			bool flag3 = false;
 			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			while(searchFlag == true)
 			{	if( move == 1)
 			{//Move east
-				if (cBoard[inRow][inColumn+1] == NULL)
+				if (cBoard[inRow][inColumn+1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -201,10 +203,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move south
-					if (cBoard[inRow+1][inColumn] == NULL)
+					if (cBoard[inRow+1][inColumn] == NULL && flag2== false)
 					{
-						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -215,10 +217,10 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 				if(move ==3)
 				{//Move north
-					if (cBoard[inRow-1][inColumn] == NULL)
+					if (cBoard[inRow-1][inColumn] == NULL && flag3 == false)
 					{
-						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -231,7 +233,7 @@ void Ant::move(int &inRow, int &inColumn)
 		}
 		
 		
-		else if (inColumn == board.getCol())
+		else if (inColumn == col)
 		{
 			
 			bool searchFlag = true;
@@ -239,13 +241,13 @@ void Ant::move(int &inRow, int &inColumn)
 			bool flag2 = false;
 			bool flag3 = false;
 			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false || flag3 == false))
+			while(searchFlag == true )
 			{	if( move == 1)
 			{//Move west
-				if (cBoard[inRow][inColumn-1] == NULL)
+				if (cBoard[inRow][inColumn-1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -257,10 +259,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move south
-					if (cBoard[inRow+1][inColumn] == NULL)
+					if (cBoard[inRow+1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -271,10 +273,10 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 				if(move ==3)
 				{//Move north
-					if (cBoard[inRow-1][inColumn] == NULL)
+					if (cBoard[inRow-1][inColumn] == NULL && flag3 == false)
 					{
-						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -291,14 +293,14 @@ void Ant::move(int &inRow, int &inColumn)
 			bool searchFlag = true;
 			bool flag1 = false;
 			bool flag2 = false;
-			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false))
+			int move = rand()%2;
+			while(searchFlag == true)
 			{	if( move == 1)
 			{//Move east
-				if (cBoard[inRow][inColumn+1] == NULL)
+				if (cBoard[inRow][inColumn+1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn+1], cBoard[inRow][inColumn]);
+				//	delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -310,10 +312,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move south
-					if (cBoard[inRow+1][inColumn] == NULL)
+					if (cBoard[inRow+1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -324,19 +326,19 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 			}
 		}
-		else if (inRow == 0 && inColumn == board.getCol())
+		else if (inRow == 0 && inColumn == col)
 		{
 			bool searchFlag = true;
 			bool flag1 = false;
 			bool flag2 = false;
-			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false))
+			int move = rand()%2;
+			while(searchFlag == true )
 			{	if( move == 1)
 			{//Move west
-				if (cBoard[inRow][inColumn-1] == NULL)
+				if (cBoard[inRow][inColumn-1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn-1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+				//	delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -348,10 +350,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 				if (move == 2)
 				{//Move south
-					if (cBoard[inRow+1][inColumn] == NULL)
+					if (cBoard[inRow+1][inColumn] == NULL && flag2== false)
 					{
-						cBoard[inRow+1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+				//		delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -362,20 +364,20 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 			}
 		}
-		else if(inRow == board.getRow() && inColumn == 0)
+		else if(inRow == row && inColumn == 0)
 		{
 			
 			bool searchFlag = true;
 			bool flag1 = false;
 			bool flag2 = false;
-			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false))
+			int move = rand()%2;
+			while(searchFlag == true )
 			{	if( move == 1)
 			{//Move east
-				if (cBoard[inRow][inColumn+1] == NULL)
+				if (cBoard[inRow][inColumn+1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+				//	delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -388,10 +390,10 @@ void Ant::move(int &inRow, int &inColumn)
 				
 				if(move ==2)
 				{//Move north
-					if (cBoard[inRow-1][inColumn] == NULL)
+					if (cBoard[inRow-1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
+					//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -403,20 +405,20 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 			
 		}
-		else if (inRow == board.getRow() && inColumn == board.getCol())
+		else if (inRow == row && inColumn == col)
 		{
 			
 			bool searchFlag = true;
 			bool flag1 = false;
 			bool flag2 = false;
-			int move = rand()%3;
-			while(searchFlag == true || (flag1 == false || flag2 == false))
+			int move = rand()%2;
+			while(searchFlag == true )
 			{	if( move == 1)
 			{//Move west
-				if (cBoard[inRow][inColumn-1] == NULL)
+				if (cBoard[inRow][inColumn-1] == NULL && flag1 == false)
 				{
-					cBoard[inRow][inColumn+1] = cBoard[inRow][inColumn];
-					delete []cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+				//	delete []cBoard[inRow][inColumn];
 					flag1 = true;
 					searchFlag = false;
 				}
@@ -429,10 +431,10 @@ void Ant::move(int &inRow, int &inColumn)
 				
 				if(move ==2)
 				{//Move north
-					if (cBoard[inRow-1][inColumn] == NULL)
+					if (cBoard[inRow-1][inColumn] == NULL && flag2 == false)
 					{
-						cBoard[inRow-1][inColumn] = cBoard[inRow][inColumn];
-						delete []cBoard[inRow][inColumn];
+						std::swap (cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+				//		delete []cBoard[inRow][inColumn];
 						searchFlag = false;
 					}
 					else
@@ -443,10 +445,75 @@ void Ant::move(int &inRow, int &inColumn)
 				}
 			}
 		}
-		
+		else
+		{	bool searchFlag = true;
+		bool flag1 = false;
+		bool flag2 = false;
+		bool flag3 = false;
+			bool flag4 = false;
+		int move = rand()%4;
+		while(searchFlag == true )
+		{	if( move == 1)
+		{//Move west
+			if (cBoard[inRow][inColumn-1] == NULL && flag1==false)
+			{
+				std::swap(cBoard[inRow][inColumn-1], cBoard[inRow][inColumn]);
+				//delete []cBoard[inRow][inColumn];
+				flag1 = true;
+				searchFlag = false;
+			}
+			else
+			{
+				move = 2;
+				flag1 = true;
+			}
+		}
+			if (move == 2)
+			{//Move south
+				if (cBoard[inRow+1][inColumn] == NULL && flag2 == false)
+				{
+					//Critter *temp = ***cBoard[inRow][inColumn];
+					std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
+					searchFlag = false;
+				}
+				else
+				{
+					move = 3;
+					flag2 = true;
+				}
+			}
+			if(move ==3)
+			{//Move east
+				if (cBoard[inRow][inColumn+1] == NULL && flag3 == false)
+				{
+					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+					//delete []cBoard[inRow][inColumn];
+					searchFlag = false;
+				}
+				else
+				{
+					move = 4;
+					flag3 = true;
+				}
+			}
+			if(move ==4)
+			{//Move north
+				if (cBoard[inRow-1][inColumn] == NULL && flag4 == false)
+				{
+					std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+				//	delete cBoard[inRow][inColumn];
+					searchFlag = false;
+				}
+				else
+				{
+					move = 1;
+					flag4 = true;
+				}
+			}
+		}
+			
+	}
 }
-
-
-
 
 }*/
