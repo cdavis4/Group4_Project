@@ -37,6 +37,7 @@ class Board
 	int getDoodleBugs();
 	void placeCritters();
 	Critter*** getBoardArray;
+	void turn();
 	~Board();
 	
 	
