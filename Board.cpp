@@ -72,13 +72,50 @@ void Board::placeCritters()
 			i -= 1; // set i back to previous value and start over
 		}
 	}
+}
+
+void Board::turn()
+{
 	
+	for(int x =0; x < steps; x++)
+	{
+		for(int i = 0; i < row; i++)
+		{
+			for(int j = 0; j <col ; j++)
+			{
+				if (boardArray[i][j]!= NULL)
+				{
+					if(boardArray[i][j]->getType()== ANT)
+					{
+						boardArray[i][j]->move(i,j,boardArray,row,col);				
+					}
+				}			
+			}		
+		}
+	
+		for(int i = 0; i < row; i++)
+		{
+			for(int j = 0; j <col ; j++)
+			{
+				if (boardArray[i][j] != NULL)
+				{
+						
+					if(boardArray[i][j]->getType()== ANT)
+					{
+						boardArray[i][j]->resetMoveCount();
+					}
+				}
+			}
+		}	
+		//Remove doodlebugs and this can show a test of ant movement.
+		print();
+	}	
 }
 
 
 void Board::print()
 {
-	std::cout << "Starting print" << endl;
+	std::cout << "\n" << endl;
 	for (int i = 0; i < row; i++)
 	{
 		for ( int j = 0; j < col; j++)
@@ -155,8 +192,4 @@ Board::~Board()
 Critter*** Board::getBoardArray()
 {
 	return boardArray;
-}
-void Critter::resetMoveCount()
-{
-	moveCount = 0;
 }
