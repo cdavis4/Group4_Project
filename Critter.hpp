@@ -31,5 +31,6 @@ public:
     Critter();
     Critter(int inRow, int inColumn);
 	void setSurvive(int);
+	void resetMoveCount();
 };
 #endif /* Critter_hpp */
