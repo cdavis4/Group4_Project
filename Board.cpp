@@ -21,12 +21,13 @@ Board::Board(int row, int col)
 	}
 	
 	for(int i=0; i<row; i++)
+	{
 		for(int j=0; j<col; j++)
 		{
 			// Originally set board to NULL (tried setting to Critters but ran into issues)
 			boardArray[i][j] = NULL;
 		}
-	
+	}
 	
 	
 	
@@ -48,6 +49,7 @@ void Board::placeCritters()
 		if(boardArray[x][y] == NULL)
 		{
 			boardArray[x][y] = new Ant;
+            boardArray[x][y]->setSurvive(0);
 		}
 		else
 		{
@@ -65,6 +67,7 @@ void Board::placeCritters()
 		if(boardArray[x][y] == NULL)
 		{
 			boardArray[x][y] = new DoodleBug;
+            boardArray[x][y]->setSurvive(0);
 		}
 		else
 		{

@@ -16,10 +16,7 @@ class DoodleBug: public Critter
 protected:
 
 public:
-    DoodleBug(int inRow, int inColumn):Critter(row, column)
-    {
-        
-    }
+   
     DoodleBug();
     void move(int&, int&); //Same as ant except no survive
     void eat(Ant*);  //now this should just get Ant* and delete.

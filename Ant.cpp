@@ -1,7 +1,7 @@
 /**************************************
- ** Author: carrie davis
+ ** Author: Group 4 Project
  ** Date:July 22, 2018
- ** Description: Project 2; Tiger
+ ** Description: Ant Class
  ****************************************/
 #include <iostream>
 #include <cstdlib>
@@ -21,6 +21,15 @@ TYPE Ant::getType()
     return ANT;
 }
 
+/*************************************************
+ * Ant::setType()
+ * gets the type of critter
+ **************************************************/
+void Ant::setSurvive(int inSurviveSteps)
+{
+    survive = inSurviveSteps;
+}
+
 
 /*************************************************
  * Ant::getSurvive()
@@ -35,37 +44,23 @@ int Ant::getSurvive()
  * Ant::breed()
  * gets the type of critter
  **************************************************/
-Ant* Ant::breed(int inRow, int inColumn)
+Ant* Ant::breed()
 {
 
-    Ant* babyAnt;
-    babyAnt = new Ant(inRow,inColumn,0);  // zero represents survival
+  Ant* babyAnt;
+    babyAnt = new Ant;
     
     return babyAnt;
+    
  
 }
 /***************
  * Ant::move
  * Moves critter one step at its current position
  * changing its position
- * place the Doodle at its new position.
+ * place the Ant at its new position.
  ****************************************************/
-void Ant::move(int &inRow, int &inColumn)
-{
-    //could randomize here
-	// COMMENTED THIS OUT TEMPORARILY UNTIL WE HAVE IT WORKING - Patrick 5:17pm 7/26
-    //getPosition(inRow,inColumn);  //not sure if this is just an unnecessary step 
-    //do checks then
-    setPosition(inRow,inColumn);
-    survive++; //update that the ant has survived to move again 
-    /* could call breed from here 
-    int babyrow = inRow; int babycolumn = inColumn
-    if(survival >= 3)
-    {
-     //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
-     breed(2DArraylocation);
-     */
-}
+
 void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
 		row--;
@@ -159,10 +154,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 			}
 			
 		}
-		
-		
-		
-		
 		
 		else if (inRow == 0 && inColumn == 0)
 		{
@@ -533,9 +524,10 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 		}
 			
 		}
-	
- 
-		moveCount++;
+            moveCount++;
+        survive++; // this is to know if ant can breed
+        if(survive >= 3)
+        { breed();}
 	}
 
 }
