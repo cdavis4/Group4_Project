@@ -3,6 +3,8 @@
  ** Date:July 22, 2018
  ** Description: Project 2; Tiger
  ****************************************/
+#include <iostream>
+#include <cstdlib>
 
 #include "Ant.hpp"
 
