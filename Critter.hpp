@@ -22,11 +22,12 @@ protected:
 
     virtual void move();
     virtual void move(int, int); //virutal function
-    virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
+    
     //updated these
     void getPosition(int&,int&);
     void setPosition(int, int);
 public:
+    virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     virtual TYPE getType() {return NONE;}
     Critter();
     Critter(int inRow, int inColumn);
