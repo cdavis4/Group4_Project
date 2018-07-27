@@ -156,3 +156,7 @@ Critter*** Board::getBoardArray()
 {
 	return boardArray;
 }
+void Critter::resetMoveCount()
+{
+	moveCount = 0;
+}
