@@ -129,6 +129,37 @@ Menu::Menu()
 	board1.setDoodleBugs(doodlebugs);
 	board1.placeCritters();
 	board1.print();
+	
+	/*for(int i =0; i < steps; i++)
+	{for(int i = 0; i < row; i++)
+		for(int j = 0; j <col ; j++)
+		{
+			if (cBoard[i][j]!= NULL)
+			{
+				
+				if(cBoard[i][j]->getType()== ANT)
+				{
+					cBoard[i][j]->move(i,j,cBoard,row,col);
+				}
+			}
+		}
+		for(int i = 0; i < row; i++)
+			for(int j = 0; j <col ; j++)
+			{
+				if (cBoard[i][j]!= NULL)
+				{
+						
+					if(cBoard[i][j]->getType()== ANT)
+					{
+						cBoard[i][j]->resetMoveCount();
+					}
+				}
+					
+			}
+		board1.print();
+		}
+		Remove doodlebugs and this can show a test of ant movement.
+		*/
 
 }
 
