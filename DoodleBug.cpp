@@ -43,7 +43,7 @@ void DoodleBug::move(int &inRow, int &inColumn)
     //could randomize here
     //getPostion(inRow,inColumn);  //not sure if this is just an unnecessary step
     //do checks for a doodle bug
-    setPosition(inRow,inColumn);
+   // setPosition(inRow,inColumn);
   //maybe call eat? change to take in row, column? or 2D array?
     
 }

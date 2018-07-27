@@ -20,17 +20,14 @@ protected:
     int moveCount; //Added to prevent a critter being moved more than once during move loop.
 			
 
-    virtual void move();
-    virtual void move(int, int); //virutal function
-    
     //updated these
-    void getPosition(int&,int&);
-    void setPosition(int, int);
+   // void getPosition(int&,int&);
+   // void setPosition(int, int);
 public:
     virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     virtual TYPE getType() {return NONE;}
     Critter();
-    Critter(int inRow, int inColumn);
+    Critter(int , int ); // represents survive and moveCount
     void setSurvive(int);
     void resetMoveCount();
 };
