@@ -17,6 +17,8 @@ protected:
     int row;
     int column;
 	int survive;
+	int moveCount; //Added to prevent a critter being moved more than once during move loop.
+			
 
 	virtual void move();
     virtual void move(int, int); //virutal function
