@@ -11,13 +11,9 @@ Board::Board(int row, int col)
 	
 	
 	boardArray = new Critter **[row];
-	for(int i = 0; i < col; i++)
+	for(int i = 0; i < row; i++)
 	{
-		
-	
-		boardArray[i] = new Critter*[row];
-	
-		//*boardArray[i] = new Ant;
+		boardArray[i] = new Critter*[col];
 	}
 	
 	for(int i=0; i<row; i++)
