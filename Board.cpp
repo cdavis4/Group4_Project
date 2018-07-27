@@ -21,13 +21,12 @@ Board::Board(int row, int col)
 	}
 	
 	for(int i=0; i<row; i++)
-	{
 		for(int j=0; j<col; j++)
 		{
 			// Originally set board to NULL (tried setting to Critters but ran into issues)
 			boardArray[i][j] = NULL;
 		}
-	}
+	
 	
 	
 	
