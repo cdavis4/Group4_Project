@@ -62,16 +62,20 @@ void Ant::move(int &inRow, int &inColumn)
     {
      //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
      breed(2DArraylocation);
-    }
-  void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
-	{
+     */
+}
+void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
+{
 		row--;
 		col--;
 		if (moveCount == 0)
 		{
 		//Critter *antTemp = **cBoard;
-		unsigned seed = time(0);
-		srand(seed);
+		//unsigned seed = time(0);  -> only need to set srand() once in main
+		//srand(seed);
+		
+		
+		
 		if (inRow == row && inColumn == col)
 		{
 			
@@ -526,9 +530,10 @@ void Ant::move(int &inRow, int &inColumn)
 			}
 		}
 			
-	}
- }
+		}
+	
+ 
 		moveCount++;
-}
+	}
 
-}*/
+}
