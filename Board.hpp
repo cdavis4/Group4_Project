@@ -36,7 +36,7 @@ class Board
 	int getAnts();
 	int getDoodleBugs();
 	void placeCritters();
-	Critter*** getBoardArray;
+	Critter*** getBoardArray();
 	void turn();
 	~Board();
 	
