@@ -12,6 +12,7 @@ Critter::Critter()
     this->row = 0;
     this->column = 0;
 	survive = 0;
+	moveCount = 0;
 }
 
 
