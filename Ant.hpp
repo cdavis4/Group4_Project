@@ -24,12 +24,11 @@ public:
     }
     Ant();
     void move(int&, int&);
+    void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     Ant* breed(int, int);
     TYPE getType(); 
     void setSurvive(int);
     int getSurvive();
-    
-    
     
     
 };
