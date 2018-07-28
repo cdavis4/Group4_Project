@@ -5,6 +5,8 @@
  ****************************************/
 #include <iostream>
 #include <cstdlib>
+#include <random>
+
 
 #include "Ant.hpp"
 
@@ -44,15 +46,56 @@ int Ant::getSurvive()
  * Ant::breed()
  * gets the type of critter
  **************************************************/
-Ant* Ant::breed()
+void Ant::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
 
-  Ant* babyAnt;
-    babyAnt = new Ant;
-    
-    return babyAnt;
-    
- 
+ cout <<"Ant is inprocess of breeding"<<endl;
+
+    int searchCounter = 0;
+    while(searchCounter < 8 )
+     {
+        random_device rd; //seed
+        mt19937 gen(rd());
+        uniform_int_distribution<int> dist(-1,1);
+        int genRowNum = dist(gen);
+        int genColNum = dist(gen);
+        cout << genRowNum << genColNum <<endl;
+        
+        int randomRow = genRowNum + inRow;
+        int randomColumn = genColNum + inColumn;
+        cout <<"RandomRow" <<randomRow <<"RandomColumn"<<randomColumn <<endl;
+        if((randomColumn <= col )&&(randomRow <= row )&&(randomColumn >= 0)&&(randomRow >= 0))
+        {
+           // if(cBoard[randomRow][randomColumn] != NULL);
+            
+            if(cBoard[randomRow][randomColumn] == NULL)
+               {
+              
+                   cBoard[randomRow][randomColumn]= new Ant;
+                   cBoard[randomRow][randomColumn]->setSurvive(0);
+                searchCounter = 8;
+           cout <<"had baby" <<endl;
+               }
+                
+            else if ((randomRow ==inRow+1) && (randomColumn == inColumn+1))
+                { searchCounter++;}
+            else if ((randomRow == inRow) && (randomColumn == inColumn+1))
+                { searchCounter++;}
+            else if ((randomRow == inRow+1)&&(randomColumn == inColumn))
+                { searchCounter++;}
+            else if ((randomRow == inRow-1) && (randomRow == inColumn+1))
+                { searchCounter++;}
+            else if ((randomRow == inRow-1)&&(randomColumn == inColumn))
+                { searchCounter++;}
+            else if ((randomRow == inRow+1) &&(randomColumn == inColumn-1))
+                { searchCounter++;}
+            else if ((randomRow == inRow)&& (randomColumn == inColumn-1))
+            { searchCounter++;}
+            else if ((randomRow == inRow-1)&&(randomColumn == inColumn-1))
+            { searchCounter++;}
+        }
+    cout << searchCounter << endl;
+    }
 }
 /***************
  * Ant::move
@@ -526,8 +569,10 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 		}
             moveCount++;
         survive++; // this is to know if ant can breed
-        if(survive >= 3)
-        { breed();}
+       //if(survive >= 3)
+       // { breed(inRow,inColumn,cBoard,row,col);
+       //     cout <<"Ant just called breed"<<endl;
+       // }
 	}
 
 }
