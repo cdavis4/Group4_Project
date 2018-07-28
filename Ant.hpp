@@ -19,7 +19,7 @@ public:
     Ant();
     ~Ant();
     void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
-    Ant* breed();
+    void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     TYPE getType(); 
     void setSurvive(int);
     int getSurvive();
