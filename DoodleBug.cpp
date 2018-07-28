@@ -68,6 +68,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -88,6 +89,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -122,6 +124,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -142,6 +145,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -182,6 +186,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -201,6 +206,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -235,6 +241,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -254,6 +261,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -288,6 +296,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -307,6 +316,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 							else
@@ -326,6 +336,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 							else
@@ -361,6 +372,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -381,6 +393,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 									delete cBoard[inRow][inColumn];
 									cBoard[inRow][inColumn] = NULL;
 									searchFlag = false;
+									moveCount++;
 								}
 							}
 							else
@@ -402,6 +415,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 									delete cBoard[inRow][inColumn];
 									cBoard[inRow][inColumn] = NULL;
 									searchFlag = false;
+									moveCount++;
 								}
 							}
 								else
@@ -438,6 +452,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -456,6 +471,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -474,6 +490,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -507,6 +524,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -525,11 +543,12 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 							else
 							{
-								move = 1;
+								move = 3;
 								flag2 = true;
 							}
 					}
@@ -543,6 +562,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -576,6 +596,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								cBoard[inRow][inColumn] = NULL;
 								flag1 = true;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -594,6 +615,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -612,6 +634,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -630,6 +653,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 								delete cBoard[inRow][inColumn];
 								cBoard[inRow][inColumn] = NULL;
 								searchFlag = false;
+								moveCount++;
 							}
 						}
 						else
@@ -663,6 +687,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//	delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -678,6 +703,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap (cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 					//		delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -703,6 +729,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//	delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -718,6 +745,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
 					//	delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -749,6 +777,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//	delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -787,6 +816,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//	delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -801,6 +831,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
 					//		delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -826,6 +857,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -840,6 +872,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -854,6 +887,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -881,6 +915,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					//delete []cBoard[inRow][inColumn];
 					//flag1 = true;
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -898,6 +933,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
 						//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
+						moveCount++;
 					}
 					else
 					{
@@ -915,6 +951,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
 						//	delete []cBoard[inRow][inColumn];
 						searchFlag = false;
+						moveCount++;
 					}
 					else
 					{
@@ -943,6 +980,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -957,6 +995,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
 					//	delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -971,6 +1010,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 					//	delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -996,6 +1036,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -1010,6 +1051,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -1024,6 +1066,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -1049,6 +1092,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				//delete []cBoard[inRow][inColumn];
 				flag1 = true;
 				searchFlag = false;
+				moveCount++;
 			}
 			else
 			{
@@ -1064,6 +1108,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -1078,6 +1123,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 					//delete []cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -1092,6 +1138,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 					//	delete cBoard[inRow][inColumn];
 					searchFlag = false;
+					moveCount++;
 				}
 				else
 				{
@@ -1103,7 +1150,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		
 	}
 	}
-	moveCount++;
+	
 }
 
 
