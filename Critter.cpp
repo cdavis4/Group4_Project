@@ -64,15 +64,15 @@ void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col
 
 void Critter::starve(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
-	if(boardArray[inRow][inColumn]!=NULL)
+	if(cBoard[inRow][inColumn]!=NULL)
 	{
 	
-		if(boardArray[inRow][inColumn]->getType=DOODLE)
+		if(cBoard[inRow][inColumn]->getType=DOODLE)
 		{
-			if(boardArray[inRow][inColumn]->getStarveCount=3)
+			if(cBoard[inRow][inColumn]->getStarveCount=3)
 			{
 				delete boardArray[inRow][inColumn];
-				boardArray[inRow][inColumn] = NULL:
+				cBoard[inRow][inColumn] = NULL:
 			}
 		}
 	}
