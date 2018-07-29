@@ -51,6 +51,10 @@ void Critter::resetMoveCount()
 {
 	moveCount = 0;
 }
+int Critter::getStarveCount()
+{
+	return starveCount;
+}
 
 
 void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
