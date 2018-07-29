@@ -13,7 +13,7 @@ class Ant: public Critter
 {
 private:
       // counts steps
-   // int survive = 0; gets this now from Critter. Could be used in Doodle bug to know when he can breed
+     int survive; // set this in constructor. Gets this now from Critter. Could be used in Doodle bug to know when he can breed
 
 public:
     Ant();
