@@ -18,7 +18,7 @@ protected:
     int column;
     int survive;
     int moveCount; //Added to prevent a critter being moved more than once during move loop.
-    int breed;
+   int starve;
 
 
     //updated these
@@ -32,5 +32,7 @@ public:
     Critter(int , int ); // represents survive and moveCount
     void setSurvive(int);
     void resetMoveCount();
+	void resetStarve;
+	
 };
 #endif /* Critter_hpp */
