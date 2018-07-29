@@ -56,6 +56,7 @@ Ant* Ant::breed(int inRow, int inColumn)
  * changing its position
  * place the Doodle at its new position.
  ****************************************************/
+/*
 void Ant::move(int &inRow, int &inColumn)
 {
     //could randomize here
@@ -65,15 +66,15 @@ void Ant::move(int &inRow, int &inColumn)
     setPosition(inRow,inColumn);
     survive++; //update that the ant has survived to move again 
 
-    /* could call breed from here 
+    //could call breed from here 
     int babyrow = inRow; int babycolumn = inColumn
     if(survival >= 3)
     {
      //randomize check if cell is empty (our array should be bool? Using NULL to initalize.
      breed(2DArraylocation);
-	*/
+	
 }
-
+*/
 
 
 /*************************************************
