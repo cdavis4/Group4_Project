@@ -115,7 +115,28 @@ void Board::turn()
 			}
 				
 		}
-			
+			for(int i = 0; i < row; i++)
+			{
+				for(int j = 0; j <col ; j++)
+				{
+					if (boardArray[i][j]!= NULL)
+					{
+						
+						// Doodlebug moves first
+						
+						if(boardArray[i][j]->getType()== DOODLE)
+						{
+							//cout << "Before Doodle move at point " << i << ", " << j << endl;
+							boardArray[i][j]->starve(i,j,boardArray,row,col);
+							//cout << "After Doodle move at point " << i << ", " << j << endl;
+							//cout << boardArray[i][j]->getNewRow() << endl;
+							//cout << boardArray[i][j]->getNewCol() << endl;
+							//boardArray[i][j]->resetMoveCount();
+							
+						}
+					}
+		 		}
+			}	
 		
 		//cout << "outside move loop - resetting count" << endl;
 		for(int i = 0; i < row; i++)
