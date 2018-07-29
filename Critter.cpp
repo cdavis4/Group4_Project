@@ -52,3 +52,9 @@ void Critter::resetMoveCount()
 	moveCount = 0;
 }
 
+
+void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
+{
+	// to be overridden in the derived class
+}
+
