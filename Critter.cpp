@@ -58,3 +58,18 @@ void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col
 	// to be overridden in the derived class
 }
 
+void Critter::starve(int inRow, int inColumn, Critter*** cBoard, int row, int col)
+{
+	if(boardArray[inRow][inColumn]!=NULL)
+	{
+	
+		if(boarboardArray[inRow][inColumn]->getType=DOODLE)
+		{
+			if(boarboardArray[inRow][inColumn]->getStarveCount=3)
+			{
+				delete boarboardArray[inRow][inColumn];
+				boarboardArray[inRow][inColumn] = NULL:
+			}
+		}
+	}
+}	
