@@ -67,12 +67,12 @@ void Critter::starve(int inRow, int inColumn, Critter*** cBoard, int row, int co
 	if(boardArray[inRow][inColumn]!=NULL)
 	{
 	
-		if(boarboardArray[inRow][inColumn]->getType=DOODLE)
+		if(boardArray[inRow][inColumn]->getType=DOODLE)
 		{
-			if(boarboardArray[inRow][inColumn]->getStarveCount=3)
+			if(boardArray[inRow][inColumn]->getStarveCount=3)
 			{
-				delete boarboardArray[inRow][inColumn];
-				boarboardArray[inRow][inColumn] = NULL:
+				delete boardArray[inRow][inColumn];
+				boardArray[inRow][inColumn] = NULL:
 			}
 		}
 	}
