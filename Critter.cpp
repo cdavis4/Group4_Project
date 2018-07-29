@@ -14,6 +14,7 @@ Critter::Critter()
    // this->column = inColumn;
     survive = 0;
     moveCount = 0;
+	starveCount = 0;
 }
 
 /*********************************************************
@@ -64,15 +65,15 @@ void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col
 
 void Critter::starve(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
-	if(boardArray[inRow][inColumn]!=NULL)
+	if(cBoard[inRow][inColumn]!=NULL)
 	{
 	
-		if(boarboardArray[inRow][inColumn]->getType=DOODLE)
+		if(cBoard[inRow][inColumn]->getType()==DOODLE)
 		{
-			if(boarboardArray[inRow][inColumn]->getStarveCount=3)
+			if(cBoard[inRow][inColumn]->getStarveCount()==3)
 			{
-				delete boarboardArray[inRow][inColumn];
-				boarboardArray[inRow][inColumn] = NULL:
+				delete cBoard[inRow][inColumn];
+				cBoard[inRow][inColumn] = NULL;
 			}
 		}
 	}
