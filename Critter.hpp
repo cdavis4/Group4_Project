@@ -28,11 +28,12 @@ public:
     virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     virtual TYPE getType() {return NONE;}
     Critter();
-	virtual void starve(int inRow, int inColumn, Critter*** cBoard, int row, int col);
+    virtual void starve(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     Critter(int , int ); // represents survive and moveCount
     void setSurvive(int);
     void resetMoveCount();
-	void resetStarve;
+    void resetStarve();
+    virtual void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col);
 	
 };
 #endif /* Critter_hpp */
