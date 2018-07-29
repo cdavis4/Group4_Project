@@ -18,7 +18,7 @@ protected:
     int column;
     int survive;
     int moveCount; //Added to prevent a critter being moved more than once during move loop.
-   int starve;
+   int starveCount;
 
 
     //updated these
