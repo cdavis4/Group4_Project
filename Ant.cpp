@@ -719,3 +719,4 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 		survive++; // this is to know if ant can breed
 	}
 }
+
