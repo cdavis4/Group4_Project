@@ -89,6 +89,7 @@ void Board::turn()
 					{
 						//cout << "Before Doodle move at point " << i << ", " << j << endl;
 						boardArray[i][j]->move(i,j,boardArray,row,col);
+						boardArray[i][j]->starve(i,j,boardArray,row,col);
 						//cout << "After Doodle move at point " << i << ", " << j << endl;
 						//cout << boardArray[i][j]->getNewRow() << endl;
 						//cout << boardArray[i][j]->getNewCol() << endl;
