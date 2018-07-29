@@ -1672,6 +1672,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1685,8 +1686,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth == false)
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
-						break;
 						starveCount++;
+						break;
+						
 					}
 					else
 					{
