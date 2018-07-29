@@ -33,6 +33,7 @@ public:
     void setSurvive(int);
     void resetMoveCount();
     void resetStarve();
+	int getStarveCount();
     virtual void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col);
 	
 };
