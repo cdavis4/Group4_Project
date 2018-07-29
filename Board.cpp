@@ -13,7 +13,7 @@ Board::Board(int row, int col)
 	boardArray = new Critter **[row];
 	for(int i = 0; i < row; i++)
 	{
-		boardArray[i] = new Critter*[col];
+		boardArray[i] = new Critter *[col];
 	}
 	
 	for(int i=0; i<row; i++)
@@ -45,7 +45,6 @@ void Board::placeCritters()
 		if(boardArray[x][y] == NULL)
 		{
 			boardArray[x][y] = new Ant;
-            boardArray[x][y]->setSurvive(0);
 		}
 		else
 		{
@@ -63,13 +62,13 @@ void Board::placeCritters()
 		if(boardArray[x][y] == NULL)
 		{
 			boardArray[x][y] = new DoodleBug;
-            boardArray[x][y]->setSurvive(0);
 		}
 		else
 		{
 			i -= 1; // set i back to previous value and start over
 		}
 	}
+	
 }
 
 void Board::turn()
@@ -83,37 +82,88 @@ void Board::turn()
 			{
 				if (boardArray[i][j]!= NULL)
 				{
-					if(boardArray[i][j]->getType()== ANT)
+					
+					// Doodlebug moves first
+					
+					if(boardArray[i][j]->getType()== DOODLE)
 					{
-						boardArray[i][j]->move(i,j,boardArray,row,col);				
+						//cout << "Before Doodle move at point " << i << ", " << j << endl;
+						boardArray[i][j]->move(i,j,boardArray,row,col);
+						//cout << "After Doodle move at point " << i << ", " << j << endl;
+						//cout << boardArray[i][j]->getNewRow() << endl;
+						//cout << boardArray[i][j]->getNewCol() << endl;
+						//boardArray[i][j]->resetMoveCount();
+								
 					}
-				}			
-			}		
+					
+					else if(boardArray[i][j]->getType()== ANT)
+					{
+						//cout << "Before Ant move at point " << i << ", " << j << endl;
+						boardArray[i][j]->move(i,j,boardArray,row,col);
+						//cout << "After Ant move at point " << i << ", " << j << endl;
+						//cout << boardArray[i][j]->getNewRow() << endl;
+						//cout << boardArray[i][j]->getNewCol() << endl;
+						//boardArray[i][j]->resetMoveCount();		
+					}
+					
+					
+					
+					
+				}
+						
+			}
+				
 		}
-	
+			
+		
+		//cout << "outside move loop - resetting count" << endl;
 		for(int i = 0; i < row; i++)
 		{
+			
+			//cout << "Loop 1" << endl;
+			
 			for(int j = 0; j <col ; j++)
 			{
+				//cout << "Loop 2" << endl;
+				//cout << "Grid cell " << i << ", " << j << endl;
 				if (boardArray[i][j] != NULL)
 				{
-						
-					if(boardArray[i][j]->getType()== ANT)
+					
+					
+					// Reset the moveCount variable
+					//cout << "Did NULL check" << endl;
+					if(boardArray[i][j]->getType()== ANT || boardArray[i][j]->getType()== DOODLE)
 					{
+						//cout << "Did ANT check" << endl;
 						boardArray[i][j]->resetMoveCount();
 					}
+					
 				}
 			}
-		}	
+		}
+			
+		cout << "Time step: " << x << "." << endl;
 		//Remove doodlebugs and this can show a test of ant movement.
 		print();
+		
+		/* Uncomment to add a timer that pauses between each screen print
+		for (int k = 0; k < 147483647; k++)
+
+		{
+
+			__asm__("nop");
+
+		}
+		*/
+		
+		
 	}	
 }
 
 
 void Board::print()
 {
-	std::cout << "\n" << endl;
+	std::cout << "\n" << std::endl; 
 	for (int i = 0; i < row; i++)
 	{
 		for ( int j = 0; j < col; j++)
