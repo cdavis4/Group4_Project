@@ -342,6 +342,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
+							starveCount = 0;
 							moveCount++;
 							break;
 						}
@@ -373,6 +374,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
+							starveCount = 0;
 							moveCount++;
 							break;
 						}
@@ -430,6 +432,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
+							starveCount = 0;
 							moveCount++;
 							break;
 						}
@@ -459,6 +462,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
+							starveCount = 0;
 							moveCount++;
 							break;
 						}
@@ -509,7 +513,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -536,7 +541,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -584,7 +590,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -611,7 +618,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -660,7 +668,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -688,7 +697,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -716,7 +726,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -766,7 +777,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							//cout << "made it to break" << endl;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -795,7 +807,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -825,7 +838,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -877,7 +891,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -905,7 +920,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -932,7 +948,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -984,7 +1001,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							flagWest = true;
 							break;
 						}
@@ -1017,7 +1035,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							flagEast = true;
 							break;
 						}
@@ -1049,7 +1068,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							flagEast = true;
 							break;
 						}
@@ -1100,7 +1120,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -1130,7 +1151,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -1160,7 +1182,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -1191,7 +1214,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							moveCount++;
+							starveCount = 0;
+							//moveCount++;
 							break;
 						}
 						else
@@ -1254,6 +1278,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						//cout << "Attempting swap on move 1" << endl;
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+						newRow = inRow;
+						newCol = inColumn-1;
+						starveCount++;
 						break;
 					}
 					else
@@ -1269,6 +1296,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						//cout << "Attempting swap on move 2" << endl;
 						std::swap (cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+						newRow = inRow-1;
+						newCol = inColumn;
+						starveCount++;
 						break;
 					}
 					else
@@ -1303,6 +1333,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
 						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
+						newRow = inRow-1;
+						newCol = inColumn;
+						starveCount++;
 						break;
 					}
 					else
@@ -1316,6 +1349,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						newRow = inRow;
+						newCol = inColumn+1;
+						starveCount++;
 						break;
 					}
 					else
@@ -1350,6 +1386,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
 						std::swap(cBoard[inRow][inColumn+1], cBoard[inRow][inColumn]);
+						newRow = inRow;
+						newCol = inColumn+1;
+						starveCount++;
 						break;
 					}
 					else
@@ -1363,6 +1402,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth == false)
 					{
 						std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
+						newRow = inRow+1;
+						newCol = inColumn;
+						starveCount++;
 						break;
 					}
 					else
@@ -1396,6 +1438,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+						newRow = inRow;
+						newCol = inColumn-1;
+						starveCount++;
 						break;
 					}
 					else
@@ -1409,6 +1454,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth== false)
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+						newRow = inRow+1;
+						newCol = inColumn;
+						starveCount++;
 						break;
 					}
 					else
@@ -1442,6 +1490,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1455,6 +1504,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
 						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1468,6 +1518,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast== false)
 					{
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1501,6 +1552,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
 						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1515,6 +1567,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast==false)
 					{
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1528,6 +1581,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth==false)
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1563,6 +1617,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1576,6 +1631,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
 						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1589,6 +1645,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth == false)
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1623,6 +1680,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1650,6 +1708,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
 						break;
+						starveCount++;
 					}
 					else
 					{
@@ -1679,6 +1738,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest==false)
 					{
 						//cout << " In if 1" << endl;
+						starveCount++;
 						std::swap(cBoard[inRow][inColumn-1], cBoard[inRow][inColumn]);
 						break;
 					}
@@ -1696,6 +1756,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						//cout << " In if 2" << endl;
 						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1711,6 +1772,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						//cout << " In if 3" << endl;
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1727,6 +1789,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						//cout << " In if 4" << endl;
 						std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
+						starveCount++;
 						break;
 					}
 					else
@@ -1740,6 +1803,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				if(flagWest && flagNorth && flagEast && flagSouth)
 				{
 					// All adjacent cells occupied. Break out
+					starveCount++;
 					break;
 				}
 			}	
