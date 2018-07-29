@@ -14,6 +14,7 @@ Critter::Critter()
    // this->column = inColumn;
     survive = 0;
     moveCount = 0;
+	starveCount=0;
 }
 
 /*********************************************************
