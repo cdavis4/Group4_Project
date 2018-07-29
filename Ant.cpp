@@ -13,6 +13,7 @@ Ant::Ant()
 {
 	survive = 0;
 	
+	
 }
 
 /*************************************************
@@ -73,25 +74,7 @@ void Ant::move(int &inRow, int &inColumn)
 	*/
 }
 
-int Ant::getAntNum()
-{
-	return antNum;
-}
 
-void Ant::setAntNum(int num)
-{
-	antNum = num;
-}
-/*
-int Ant::getNewRow()
-{
-	return newRow;
-}
-int Ant::getNewCol()
-{
-	return newCol;
-}
-*/
 
 /*************************************************
  * Ant::breed()
@@ -201,7 +184,7 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 	
 	
 	//cout << "Moving ant number " << antNum << endl;
-	antNum++;
+
 	row--;
 	col--;
 	// when these flags are set to true, the direction is no longer available
@@ -237,8 +220,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					{
 						//cout << "Attempting swap on move 1" << endl;
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
-						newRow = inRow;
-						newCol = inColumn-1;
 						break;
 					}
 					else
@@ -254,8 +235,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					{
 						//cout << "Attempting swap on move 2" << endl;
 						std::swap (cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
-						newRow = inRow-1;
-						newCol = inColumn;
 						break;
 					}
 					else
@@ -290,8 +269,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
 						std::swap(cBoard[inRow-1][inColumn], cBoard[inRow][inColumn]);
-						newRow = inRow-1;
-						newCol = inColumn;
 						break;
 					}
 					else
@@ -305,8 +282,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
-						newRow = inRow;
-						newCol = inColumn+1;
 						break;
 					}
 					else
@@ -341,8 +316,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
 						std::swap(cBoard[inRow][inColumn+1], cBoard[inRow][inColumn]);
-						newRow = inRow;
-						newCol = inColumn+1;
 						break;
 					}
 					else
@@ -356,8 +329,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth == false)
 					{
 						std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
-						newRow = inRow+1;
-						newCol = inColumn;
 						break;
 					}
 					else
@@ -391,8 +362,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
-						newRow = inRow;
-						newCol = inColumn-1;
 						break;
 					}
 					else
@@ -406,8 +375,6 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth== false)
 					{
 						std::swap(cBoard[inRow+1][inColumn], cBoard[inRow][inColumn]);
-						newRow = inRow+1;
-						newCol = inColumn;
 						break;
 					}
 					else
