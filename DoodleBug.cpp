@@ -1099,7 +1099,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 			}
 		}
 		// Not adjacent to any edge
-		else if(cBoard[inRow][inColumn-1] != NULL)
+		else 
 		{	
 			while(1) 
 			{	
