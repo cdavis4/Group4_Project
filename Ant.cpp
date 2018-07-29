@@ -12,9 +12,6 @@
 Ant::Ant()
 {
 	survive = 0;
-	antNum = 0;
-	newRow = 0;
-	newCol = 0;
 	
 }
 
