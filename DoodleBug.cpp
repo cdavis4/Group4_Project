@@ -1255,6 +1255,10 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 	
 	if(moveCount == 0)	
 	{
+		bool flagWest = false;
+		bool flagNorth = false;
+		bool flagEast = false;
+		bool flagSouth = false;
 		// At southeast corner (lower right)
 		if (inRow == row && inColumn == col) // && !noAnt)
 		{
