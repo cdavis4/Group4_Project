@@ -36,7 +36,7 @@ class Critter
     void resetMoveCount();
     void resetStarve();
     int getStarveCount();
-    virtual void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col);
+    virtual void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)=0;
 	
 };
 #endif /* Critter_hpp */
