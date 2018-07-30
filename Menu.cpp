@@ -254,7 +254,7 @@ int Menu::inputVal()
 					isValidRange = true;
 				}
 			}
-			// test to see if the number of doodlebugs is in the range 1 to 1% of the grid size (maxDoodle)
+			// test to see if the number of doodlebugs is in the range 1 to 2% of the grid size (maxDoodle)
 			else if(question == 5)
 			{
 				if(userNum >= 1 && userNum <= maxDoodle) 
