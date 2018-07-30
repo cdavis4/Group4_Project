@@ -60,8 +60,7 @@ Menu::Menu()
 	cout << endl;				
 	// Game options (steps, grid size, ants, doodlebugs)
 	// These inputs are validated by the inputVal function
-	
-	
+
 	// mandatory user input
 	// question 1
 	cout << "Please enter the number of steps (not less than 1 or greater than 12000): " << endl;
@@ -70,7 +69,7 @@ Menu::Menu()
 	steps = inputVal();
 	question++;
 	
-	// EC user input (assumes 1:20 ratio of doodlebugs to ants)
+	// questions 2-5 are for Extra Credit options 
 	// question 2
 	cout << "Please enter the number of rows (not less than 10 or greater than 100): " << endl;
 	cin.clear();
@@ -96,29 +95,31 @@ Menu::Menu()
 	question++;
 	
 	// question 5
-	// the number of doodlebugs cannot be greater than 1% of the grid size (maxDoodle)
-	cout << "Please enter the number of doodlebugs (not less than 1 or greater than " << maxDoodle << ")" << endl; // only 1 doodlebug for a 10x10 board to start
+	// the number of doodlebugs cannot be greater than 2% of the grid size (maxDoodle)
+	cout << "Please enter the number of doodlebugs (not less than 1 or greater than " << maxDoodle << ")" << endl; // only 2 doodlebugs for a 10x10 board to start
 	cin.clear();
 	getline(cin, userInput);
 	doodlebugs = inputVal();
 	question++;
-	//cin.clear();
 	
+	// Instantiate a board and necessary call functions to set values
 	Board board1(row, col);
 	board1.setSteps(steps);
 	board1.setAnts(ants);
 	board1.setDoodleBugs(doodlebugs);
 	board1.placeCritters();
+	// Once values are set, print out the board
 	board1.print();
-	
+	// After an initial printing of the board, run the simulation
 	board1.turn();
 	
+	// After one run of the simulation, ask the user
+	// if they would like to continue running the simulation.  If so,
+	// the user enters a new number of steps. If not, they press 'q' to quit.
 	while(1)
 	{
-		cout << "Would you like to continue running the simulation?" << endl;
-		//cout << "Press 'q' to Quit." << endl;
-		
-		cout << "Please enter the number of steps to keep running the simulation or press 'q' to quit. " << endl;
+		cout << "\nTo continue running the simulation, enter a new number of steps." << endl;
+		cout << "Press 'q' to quit. " << endl;
 		cin.clear();
 		getline(cin, userInput);
 		
@@ -130,53 +131,72 @@ Menu::Menu()
 		steps = inputVal();
 		board1.setSteps(steps);
 		board1.turn();
-		
 	}
 	
 }
 
-// steps getter
+/***************************************************************
+ *                   getSteps                 
+ * A getter function that takes no parameters and 
+ * returns an int value for the number of steps.
+ **************************************************************/
 int Menu::getSteps()
 {
 	return steps;
 }
 
-// row getter
+/***************************************************************
+ *                   getRow                 
+ * A getter function that takes no parameters and 
+ * returns an int value for the number of rows.
+ **************************************************************/
 int Menu::getRow()
 {
 	return row;
 }
 	
-// col getter	
+/***************************************************************
+ *                   getCol                 
+ * A getter function that takes no parameters and 
+ * returns an int value for the number of columns.
+ **************************************************************/	
 int Menu::getCol()
 {
 	return col;
 }
 
-// ants getter
+/***************************************************************
+ *                   getAnts                 
+ * A getter function that takes no parameters and 
+ * returns an int value for the number of ants.
+ **************************************************************/
 int Menu::getAnts()
 {
 	return ants;
 }
 
-// doodlebugs getter
+/***************************************************************
+ *                   getName                  
+ * A getter function that takes no parameters and 
+ * returns an int value for the number of doodlebugs.
+ **************************************************************/
 int Menu::getDoodlebugs()
 {
 	return doodlebugs;
 }
 
 
-
 /***************************************************************
  *                inputVal                        
  * 	  This function takes no parameters.  It uses two
  *    member variables: a string for the user's input 
- *    and an integer to keep track of which question 
- *    the menu is validating the input for.  It checks 
- *    to make sure the input is an integer and also 
- *    checks to make sure the integer is in the correct 
- *    range.  The function returns an int which is the 
- *    actual integer being asked for from the user.
+ *    (userInput) and an integer to keep track of which 
+ *    question the menu is validating the input for 
+ *    (question).  It checks to make sure the input is 
+ *    an integer and also checks to make sure the integer 
+ *    is in the correct range.  The function returns an 
+ *    int which is the actual integer being asked for 
+ *    from the user.
  **************************************************************/
 int Menu::inputVal()
 {
