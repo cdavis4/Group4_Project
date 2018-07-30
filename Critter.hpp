@@ -28,7 +28,7 @@ class Critter
     int starveCount;
 	
  public:
-    virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
+    virtual void move(int inRow, int inColumn, Critter*** cBoard, int row, int col)=0;
     virtual TYPE getType() {return NONE;}
     Critter();
     virtual void starve(int inRow, int inColumn, Critter*** cBoard, int row, int col);
