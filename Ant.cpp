@@ -603,13 +603,12 @@ void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 
 		moveCount++;
 		
-		
+		survive++; // this is to know if ant can breed
 		if(survive > 0 && survive %3 == 0)
 		{ 
 			breed(inRow,inColumn,cBoard,row,col);
 			//cout <<"Ant just called breed"<<endl;
 		}
-		survive++; // this is to know if ant can breed
 	}
 }
 
