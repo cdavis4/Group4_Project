@@ -105,7 +105,18 @@ void Board::turn()
 								
 					}
 					
-					else if(boardArray[i][j]->getType()== ANT)
+				}
+						
+			}
+		}
+		for(int i = 0; i < row; i++)
+		{
+			for(int j = 0; j <col ; j++)
+			{
+				if (boardArray[i][j]!= NULL)
+				{
+					
+					if(boardArray[i][j]->getType()== ANT)
 					{
 						//cout << "Before Ant move at point " << i << ", " << j << endl;
 						boardArray[i][j]->move(i,j,boardArray,row,col);
