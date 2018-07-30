@@ -13,22 +13,16 @@ class Board
 	Critter ***boardArray;
 	int row;
 	int col;
-	
-	// added July 26
 	int steps;
 	int numAnts;
 	int numDBugs;
 	
 	public:
-	Board();
 	Board(int row, int column);
 	void print();
-	void freeMemory();
 	friend class Critter;
 	friend class Ant;
 	//friend class Doodlebug;
-	
-	// functions added July 26
 	void setSteps(int);
 	void setAnts(int);
 	void setDoodleBugs(int);
