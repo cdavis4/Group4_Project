@@ -1792,12 +1792,13 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		moveCount++;
 		
 	}
+	survive++; // this is to know if doodlebug can breed
 	if(survive > 0 && survive%8 == 0)
 	{ 
 		breed(inRow,inColumn,cBoard,row,col);
 		//cout <<"DoodleBug just called breed"<<endl;
 	}
-	survive++; // this is to know if doodlebug can breed
+	//survive++; // this is to know if doodlebug can breed
 }
 
 
