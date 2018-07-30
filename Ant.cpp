@@ -102,6 +102,19 @@ void Ant::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
     }
 }
 
+/*************************************************
+ * Ant::move()
+ * A function that takes 5 parameters: 2 int 
+ * parameters for the coordinates, a 2d array of
+ * Critter pointers and two ints for the row
+ * and columns of the board.  It returns
+ * nothing (void).  It loops through all
+ * cells of the board and checks to see 
+ * if the cells around a current Ant 
+ * are unoccupied.  If they are, the Ant is 
+ * moved to that cell.  It also checks for
+ * to see if an Ant is facing an edge.
+ **************************************************/
 void Ant::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
 	row--;
