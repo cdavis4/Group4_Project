@@ -16,6 +16,7 @@ class Board
 	int steps;
 	int numAnts;
 	int numDBugs;
+	int stepNumber;
 	
 	public:
 	Board(int row, int column);
