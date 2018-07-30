@@ -1,15 +1,26 @@
+/*******************************************************
+ ** Author: group 4
+ ** Date:July 27, 2018
+ ** Description: Group 4 Project; Board Class
+*******************************************************/
+
 #include "Board.hpp"
 #include <cstdlib>
 
 
-
+/*********************************************************
+ * Board 2-args contructor:
+ * Takes two int parameters for the rows and 
+ * columns of the board.  It then creates
+ * a 2-D dynamic array of Critter pointers. 
+ *******************************************************/
 Board::Board(int row, int col)
 {
 	this -> row = row;
 	this -> col = col;
 	
 	
-	
+	// create 2d dynamic array of Critter pointers
 	boardArray = new Critter **[row];
 	for(int i = 0; i < row; i++)
 	{
@@ -20,14 +31,12 @@ Board::Board(int row, int col)
 	{
 		for(int j=0; j<col; j++)
 		{
-			// Originally set board to NULL (tried setting to Critters but ran into issues)
+			// Set each cell initially to NULL
 			boardArray[i][j] = NULL;
 		}
 	}
-	
-	
-	
 }
+
 
 // Should ants be placed first?  Does this matter?
 void Board::placeCritters()
