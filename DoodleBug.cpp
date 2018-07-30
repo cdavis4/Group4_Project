@@ -1,9 +1,10 @@
-//
-//  DoodleBug.cpp
-//  
-//
-//  Created by Carrie Davis on 7/25/18.
-//
+/*******************************************************
+Doodlebug is a derived class of Critter. Its move method
+looks for an Ant to eat in an adjacent cell, if not,
+it moves randomly. If the Doodlebug does not eat an
+Ant in three steps, then the Doodlebug starves and
+dies.
+********************************************************/
 
 
 #include <iostream>
@@ -30,196 +31,17 @@ TYPE DoodleBug::getType()
     return DOODLE;
 }
 
-
-/*
-*************************************************
- * Ant::eat()
- * gets the type of critter
- **************************************************
-void DoodleBug::eat(Ant* inAntLocation)
-{
-    delete inAntLocation;
-    
-}
-*/
-
-
-
-/*
-int DoodleBug::eat(int inRow, int inColumn, Critter*** cBoard, int row, int col)
-{
-	// lower right
-	if (inRow == row && inColumn == col)
-	{
-		// Always checks west first
-		if(cBoard[inRow][inColumn-1] != NULL)
-		{
-			if(cBoard[inRow][inColumn-1]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
-				std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-		// check north
-		else if(cBoard[inRow-1][inColumn] != NULL)
-		{
-			if(cBoard[inRow-1][inColumn]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
-				std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-	}
-	// lower left
-	else if(inRow == row && inColumn == 0)
-	{
-		// check east
-		if(cBoard[inRow][inColumn+1] != NULL)
-		{
-			if(cBoard[inRow][inColumn+1]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
-				std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-		// check north
-		else if(cBoard[inRow-1][inColumn] != NULL)
-		{
-			if(cBoard[inRow-1][inColumn]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
-				std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-	// upper left
-	else if (inRow == 0 && inColumn == 0)
-	{
-		// check east
-		if(cBoard[inRow][inColumn+1] != NULL)
-		{
-			if(cBoard[inRow][inColumn+1]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
-				std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-		// check south
-		else if(cBoard[inRow+1][inColumn] != NULL)
-		{
-			if(cBoard[inRow+1][inColumn]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
-				std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-	}
-	// upper right
-	else if (inRow == 0 && inColumn == col)
-	{
-		// check west		
-		if(cBoard[inRow][inColumn-1] != NULL)
-		{
-			if(cBoard[inRow][inColumn-1]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
-				std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-		// check south
-		else if(cBoard[inRow+1][inColumn] != NULL)
-		{
-			if(cBoard[inRow+1][inColumn]->getType() == ANT)
-			{
-			//if (cBoard[inRow][inColumn-1]->getType() == ANT)
-			//{
-
-				// eat the ant
-				cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
-				std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
-				delete cBoard[inRow][inColumn];
-				cBoard[inRow][inColumn] = NULL;
-				return 1;
-			//}
-			}
-		}
-	}
-	return 0;
-	
-}
-*/
-
 /*************************************************
  * DoodleBug::breed()
  * gets the type of critter
  **************************************************/
 void DoodleBug::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
-{
-
- //cout <<"DoodleBug is inprocess of breeding"<<endl;
-	
-	
+{	
     int searchCounter = 0;
-	random_device rd; //seed needs to be on outside of loop
+    random_device rd; 
 	
     while(searchCounter < 8 )
      {
-        
         mt19937 gen(rd());
         uniform_int_distribution<int> dist(-1,1);
         int genRowNum = dist(gen);
@@ -227,63 +49,55 @@ void DoodleBug::breed(int inRow, int inColumn, Critter*** cBoard, int row, int c
         cout << genRowNum << genColNum <<endl;
 		
         int randomRow = genRowNum + inRow;
-		int randomColumn = genColNum + inColumn;
-		
-		//cout << "Row: " << row << " Column: " << col << endl; 
-        //cout <<"RandomRow " <<randomRow <<" RandomColumn "<<randomColumn <<endl;
+	int randomColumn = genColNum + inColumn;
+			
         if((randomColumn <= col )&&(randomRow <= row )&&(randomColumn >= 0)&&(randomRow >= 0))
         {
-           // if(cBoard[randomRow][randomColumn] != NULL);
-            //cout << "inRow: " << inRow << " inColumn: " << inColumn << endl;
             if(cBoard[randomRow][randomColumn] == NULL)
             {
-				//cout << "1" << endl;
                 cBoard[randomRow][randomColumn]= new DoodleBug;
                 cBoard[randomRow][randomColumn]->setSurvive(0);
-				searchCounter = 8;
-				cout <<"had baby" <<endl;
-            }
+		searchCounter = 8;
+	    }
                 
             else if ((randomRow ==inRow+1) && (randomColumn == inColumn+1))
-                { searchCounter++;
-			//cout << "2" << endl;
-			}
+            {
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow) && (randomColumn == inColumn+1))
-                { searchCounter++;
-			//cout << "3" << endl;
-			}
+            {
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow+1)&&(randomColumn == inColumn))
-                { searchCounter++;
-			//cout << "4" << endl;
-			}
+            {
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow-1) && (randomRow == inColumn+1))
-                { searchCounter++;
-			//cout << "5" << endl;
-			}
+            { 
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow-1)&&(randomColumn == inColumn))
-                { searchCounter++;
-			//cout << "6" << endl;
-			}
+            { 
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow+1) &&(randomColumn == inColumn-1))
-                { searchCounter++;
-			//cout << "7" << endl;
-			}
+            {
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow)&& (randomColumn == inColumn-1))
-            { searchCounter++;
-			//cout << "8" << endl;
-			}
+            {
+		    searchCounter++;
+	    }
             else if ((randomRow == inRow-1)&&(randomColumn == inColumn-1))
-            { searchCounter++;
-			//cout << "9" << endl;
-			}
+            { 
+		    searchCounter++;
+	    }
         }
-		
-    //cout << searchCounter << endl;
     }
 }
 
 /*********************************************************
- * Critter::move -> this should be DoodleBug, not Critter right?
+ * 
  * Moves critter one step at its current position
  * changing its position
  * place the Doodle at its new position.
@@ -292,9 +106,6 @@ void DoodleBug::breed(int inRow, int inColumn, Critter*** cBoard, int row, int c
  	
 void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
-		
-	
-	
 	// 1 west, 2 north, 3 east, 4 south
 	// the if-else statements follow a clockwise pattern (ie if first checking west: west->north->east->south)
 
@@ -308,54 +119,44 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 	bool flagSouth = false;
 	bool ateAnt = false;
 	int move = rand()%4+1;
-	//cout << "Move: " << move << endl;
-	
+
 	if (moveCount == 0)
 	{
-		//cout << "Move: " << move << endl;
-	//Critter *antTemp = **cBoard;
-	//unsigned seed = time(0);
-	//srand(seed);
-	
-	
 		// At southeast corner (lower right)
 		if (inRow == row && inColumn == col)
 		{
 			while(1) 
 			{	
-				//cout << "In eating loop 1" << endl;
+				
 				if(move == 3 || move == 4) // can't move east or south b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
 				{//Move west
-					//cout << "here in move 1" << endl;
+					
 					if (cBoard[inRow][inColumn-1] != NULL)
 					{
 						if (cBoard[inRow][inColumn-1]->getType() == ANT  && flagWest == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
+							
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
 					
 					else
 					{
-						//cout << "still in move 1 " << endl;
 						move = 2; // try the north next
 						flagWest = true;
 					}
@@ -363,32 +164,26 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				
 				if(move ==2)
 				{//Move north
-					//cout << "here in move 2 " << endl;
 					if(cBoard[inRow-1][inColumn] != NULL)
 					{
 						if (cBoard[inRow-1][inColumn]->getType() == ANT && flagNorth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
-							//break;
 							break;
 						}
 					}
 					
 					else
 					{
-						//cout << "still in move 2 " << endl;
 						move = 1; // move was initially 2 so now go back and try the west
 						flagNorth = true;
 					}
@@ -397,8 +192,6 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If east and north cells are both occupied
 				if(flagWest && flagNorth)
 				{
-					// both possible spaces occupied so ant does not move
-					//break;
 					break;
 				}
 				
@@ -409,36 +202,28 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		else if(inRow == row && inColumn == 0)
 		{
 			while(1) 
-			{	
-				//cout << "In eating loop 2" << endl;
+			{
 				if(move == 1 || move == 4) // can't move west or south b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
-					//cout << "In if 1" << endl;
-					//break;
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if(move ==2)
 				{//Move north
-					//cout << "In if 2" << endl;
-					
 					if(cBoard[inRow-1][inColumn] != NULL)
 					{
 						if (cBoard[inRow-1][inColumn]->getType() == ANT  && flagNorth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -451,24 +236,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if( move == 3)
 				{//Move east
-					//cout << "In if 3" << endl;
 					if(cBoard[inRow][inColumn+1] != NULL)
 					{
 						if (cBoard[inRow][inColumn+1]->getType() == ANT && flagEast == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -482,7 +263,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If north and east are both occupied
 				if(flagNorth && flagEast)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -493,33 +274,28 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		else if (inRow == 0 && inColumn == 0)
 		{
 			while(1) 
-			{	
-				//cout << "In eating loop 3" << endl;
+			{
 				if(move == 1 || move == 2) // can't move west or north b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 3)
 				{//Move east
-					
 					if(cBoard[inRow][inColumn+1] != NULL)
 					{
 						if (cBoard[inRow][inColumn+1]->getType() == ANT   && flagEast == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -537,17 +313,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						{
 							ateAnt = true;
 							// eat the ant
-							//cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -560,7 +333,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If east and south cells are both occupied
 				if(flagEast && flagSouth)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -570,11 +343,10 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		else if (inRow == 0 && inColumn == col)
 		{
 			while(1) 
-			{	
-				//cout << "In eating loop 4" << endl;
+			{
 				if(move == 2 || move == 3) // can't move north or east b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
@@ -586,17 +358,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -614,17 +383,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -637,7 +403,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west and south cells are both occupied
 				if(flagWest && flagSouth)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -648,15 +414,13 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In eating loop 5 at move " << move << endl;
 				if(move == 4) // can't move south
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
 				{//Move west
-					
 					if(cBoard[inRow][inColumn-1] != NULL)
 					{
 						if (cBoard[inRow][inColumn-1]->getType() == ANT  && flagWest == false)
@@ -664,17 +428,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -686,24 +447,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if (move == 2)
 				{//Move north
-					
 					if(cBoard[inRow-1][inColumn] != NULL )
 					{
 						if (cBoard[inRow-1][inColumn]->getType() == ANT && flagNorth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -715,24 +472,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if(move ==3)
 				{//Move east
-					
 					if(cBoard[inRow][inColumn+1] != NULL )
 					{
 						if (cBoard[inRow][inColumn+1]->getType() == ANT  && flagEast == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -745,7 +498,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west, north, and east cells are all occupied
 				if(flagWest && flagNorth && flagEast)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -756,34 +509,27 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In eating loop 6" << endl;
 				if(move == 1) //can't move west
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
-				//cout << "MOve: " << move << endl;
 				if(move ==2)
 				{//Move north
-
 					if(cBoard[inRow-1][inColumn] != NULL )
 					{
 						if (cBoard[inRow-1][inColumn]->getType() == ANT  && flagNorth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
-							//cout << "made it to break" << endl;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -793,27 +539,21 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						flagNorth = true;
 					}
 				}
-				//cout << "MOve: " << move << endl;
 				if( move == 3)
 				{//Move east
-					
 					if(cBoard[inRow][inColumn+1] != NULL)
 					{
 						if (cBoard[inRow][inColumn+1]->getType() == ANT   && flagEast == false)
 						{
 							ateAnt = true;
-							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -823,34 +563,27 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						flagEast = true;
 					}
 				}
-				//cout << "MOve: " << move << endl;
 				if (move == 4)
-				{//Move south		
-					
+				{//Move south
 					if(cBoard[inRow+1][inColumn] != NULL )
 					{
-						//cout << "Inside move 4 if statement" << endl;
 						if (cBoard[inRow+1][inColumn]->getType() == ANT  && flagSouth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
 					else
 					{
-						//cout << "In else statmeent " << endl;
 						move = 2; // move was initially 4 so now go back and try the north
 						flagSouth = true;
 					}
@@ -859,7 +592,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If north, east, and south cells are all occupied
 				if(flagNorth && flagEast && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlbug does not move
 					break;
 				}
 			}
@@ -870,10 +603,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In eating loop 7" << endl;
 				if(move == 3) // can't move east
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				
@@ -884,20 +616,16 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					{
 						if (cBoard[inRow][inColumn-1]->getType() == ANT && flagWest == false)
 						{
-							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -916,17 +644,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -944,17 +669,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -968,7 +690,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west, north, and south cells are all occupied
 				if(flagWest && flagNorth && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -979,70 +701,57 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In eating loop 8 with a value of " << move << "." << endl;
 				if(move == 2) // can't move north
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				
 				if( move == 1)
 				{//Move west
-					//cout <<"I'm here" << endl;
 					if (cBoard[inRow][inColumn-1] != NULL)
 					{
-						//cout << "Not NULL " << endl;
 						if (cBoard[inRow][inColumn-1]->getType() == ANT  && flagWest == false)
 						{
 							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							flagWest = true;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 							
 					}
 					else
 					{
-						//cout << "Move to this else statement" << endl;
 						move = 3; // try the east next
 						flagWest = true;
-						//cout << "Move is now " << move << endl;
 					}
 				}
 				if(move == 3)
 				{//Move east
-					//cout <<"I'm actually here" << endl;
 					if(cBoard[inRow][inColumn+1] != NULL)
 					{
-						//cout << "Not NULL " << endl;
 						if (cBoard[inRow][inColumn+1]->getType() == ANT  && flagEast == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							flagEast = true;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							flagEast = true;
 							break;
 						}
@@ -1056,26 +765,21 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if (move == 4)
 				{//Move south
-					//cout <<"NOPE I'm here" << endl;
 					if(cBoard[inRow+1][inColumn] != NULL)
 					{
-						//cout << "Not NULL " << endl;
 						if (cBoard[inRow+1][inColumn]->getType() == ANT  && flagSouth == false)
 						{
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							flagEast = true;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							flagSouth = true;
 							break;
 						}
@@ -1087,15 +791,12 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						
 					}
 				}
-				//cout << "Am I even here???" << endl;
 				// If west, east, and south cells are all occupied
 				if(flagWest && flagEast && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
-				}
-				//cout << "Value of move at end of loop 8 : " << move << endl;
-				
+				}				
 			}
 		}
 		// Not adjacent to any edge
@@ -1103,12 +804,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{	
 			while(1) 
 			{	
-				
-				//cout << "In eating loop 9 with a value of " << move << "." << endl;
 				if( move == 1)
 				{//Move west
-					//cout << "In west" << endl;
-					
 					if(cBoard[inRow][inColumn-1] != NULL )
 					{
 						if (cBoard[inRow][inColumn-1]->getType() == ANT && flagWest == false)
@@ -1116,17 +813,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn-1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -1138,26 +832,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if(move ==2)
 				{//Move north
-					//cout << "In north" << endl;
-					
 					if(cBoard[inRow-1][inColumn] != NULL)
 					{
 						if (cBoard[inRow-1][inColumn]->getType() == ANT  && flagNorth == false)
 						{
-							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow-1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -1169,26 +857,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				if(move ==3)
 				{//Move east
-					//cout << "In east" << endl;
-					
 					if(cBoard[inRow][inColumn+1] != NULL )
 					{
 						if (cBoard[inRow][inColumn+1]->getType() == ANT && flagEast == false)
 						{
-							
 							ateAnt = true;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow << ", " << inColumn+1 << "!" << endl;
 							std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
@@ -1200,45 +882,36 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				}
 				
 				if (move == 4)
-				{//Move south
-					//cout << "In south" << endl;
-					
+				{//Move south					
 					if(cBoard[inRow+1][inColumn] != NULL)
 					{
 						if (cBoard[inRow+1][inColumn]->getType() == ANT  && flagSouth == false)
 						{
 							ateAnt = true;
-							//cout << "2nd if statement" << endl;
 							// eat the ant
-							cout << "A doodlebug just ate an ant at cell " << inRow+1 << ", " << inColumn << "!" << endl;
 							std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 							delete cBoard[inRow][inColumn];
 							cBoard[inRow][inColumn] = NULL;
 							starveCount = 0;
-							//moveCount++;
 							break;
 						}
 						else
 						{
-							//cout << "It's a doodle" << endl;
 							break;
 						}
 					}
 					else
 					{
-						//cout << "3rd if statement " << endl;
 						move = 1; // move was initially 4 so now go back and try the west
 						flagSouth = true;
 					}
 				}
 				// If west, north, east, and south cells are all occupied
-				//cout << "Made it this far in loop 9" << endl;
 				if(flagWest && flagNorth && flagEast && flagSouth)
 				{
 					// All adjacent cells occupied. Break out
 					break;
 				}
-				//cout << "Value of move at end of loop 9 : " << move << endl;
 			}	
 		}
 		if(ateAnt)
@@ -1246,13 +919,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 			moveCount++;
 		}
 		
-		
-		
 	}
 	
 	// if moveCount > 0, then the doodlebug ate an ant and the code below will not run
-	//
-	
 	if(moveCount == 0)	
 	{
 		bool flagWest = false;
@@ -1260,21 +929,19 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		bool flagEast = false;
 		bool flagSouth = false;
 		// At southeast corner (lower right)
-		if (inRow == row && inColumn == col) // && !noAnt)
+		if (inRow == row && inColumn == col) 
 		{
 			while(1) 
 			{	
-				//cout << "In loop 1" << endl;
 				if(move == 3 || move == 4) // can't move east or south b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// dooblebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
 				{//Move west
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest == false)
 					{
-						//cout << "Attempting swap on move 1" << endl;
 						std::swap(cBoard[inRow][inColumn-1],cBoard[inRow][inColumn]);
 						starveCount++;
 						break;
@@ -1290,7 +957,6 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				{//Move north
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
-						//cout << "Attempting swap on move 2" << endl;
 						std::swap (cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 						starveCount++;
 						break;
@@ -1304,7 +970,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If east and north cells are both occupied
 				if(flagWest && flagNorth)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 				
@@ -1312,14 +978,14 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		}
 		
 		// At southwest corner (lower left)
-		else if(inRow == row && inColumn == 0) // && !noAnt)
+		else if(inRow == row && inColumn == 0) 
 		{
 			while(1) 
 			{	
 				//cout << "In loop 2" << endl;
 				if(move == 1 || move == 4) // can't move west or south b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if(move ==2)
@@ -1353,7 +1019,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If north and east are both occupied
 				if(flagNorth && flagEast)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -1365,10 +1031,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In loop 3" << endl;
 				if(move == 1 || move == 2) // can't move west or north b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 3)
@@ -1402,7 +1067,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If east and south cells are both occupied
 				if(flagEast && flagSouth)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -1413,10 +1078,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In loop 4" << endl;
 				if(move == 2 || move == 3) // can't move north or east b/c they face the edges of the board
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
@@ -1450,7 +1114,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west and south cells are both occupied
 				if(flagWest && flagSouth)
 				{
-					// both possible spaces occupied so ant does not move
+					// both possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -1461,10 +1125,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In loop 5" << endl;
 				if(move == 4) // can't move south
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
@@ -1512,7 +1175,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west, north, and east cells are all occupied
 				if(flagWest && flagNorth && flagEast)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
@@ -1523,10 +1186,9 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 		{
 			while(1) 
 			{	
-				//cout << "In loop 6 and move " << move << endl;
 				if(move == 1) //can't move west
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if(move ==2)
@@ -1573,25 +1235,23 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						
 					}
 				}
-				//cout << "All should be TRUE " << endl;
 				// If north, east, and south cells are all occupied
 				if(flagNorth && flagEast && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
 		}
 
 		// eastern edge
-		else if (inColumn == col) // && !noAnt)
+		else if (inColumn == col) 
 		{
 			while(1) 
 			{	
-				//cout << "In loop 7" << endl;
 				if(move == 3) // can't move east
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
@@ -1640,21 +1300,20 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west, north, and south cells are all occupied
 				if(flagWest && flagNorth && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
 		}
 		
 		// northern edge
-		else if(inRow == 0 ) //&& !noAnt)
+		else if(inRow == 0 ) 
 		{
 			while(1) 
 			{	
-				//cout << "In loop 8" << endl;
 				if(move == 2) // can't move north
 				{
-					// ant unable to move b/c it hits an edge
+					// doodlebug unable to move b/c it hits an edge
 					break;
 				}
 				if( move == 1)
@@ -1704,31 +1363,27 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				// If west, east, and south cells are all occupied
 				if(flagWest && flagEast && flagSouth)
 				{
-					// all possible spaces occupied so ant does not move
+					// all possible spaces occupied so doodlebug does not move
 					break;
 				}
 			}
 		}
 		
 		// Not adjacent to any edge
-		else //if(!noAnt)
+		else 
 		{	
 			while(1) 
 			{	
-				//cout << "In loop 9" << endl;
 				if( move == 1)
 				{//Move west
-					//cout << "In west" << endl;
 					if (cBoard[inRow][inColumn-1] == NULL && flagWest==false)
 					{
-						//cout << " In if 1" << endl;
 						starveCount++;
 						std::swap(cBoard[inRow][inColumn-1], cBoard[inRow][inColumn]);
 						break;
 					}
 					else
 					{
-						//cout << " in else 1" << endl;			
 						move = 2; // try the north next
 						flagWest = true;
 					}
@@ -1738,7 +1393,6 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					//cout << "In north" << endl;
 					if (cBoard[inRow-1][inColumn] == NULL && flagNorth == false)
 					{
-						//cout << " In if 2" << endl;
 						std::swap(cBoard[inRow-1][inColumn],cBoard[inRow][inColumn]);
 						starveCount++;
 						break;
@@ -1754,7 +1408,6 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 					//cout << "In east" << endl;
 					if (cBoard[inRow][inColumn+1] == NULL && flagEast == false)
 					{
-						//cout << " In if 3" << endl;
 						std::swap(cBoard[inRow][inColumn+1],cBoard[inRow][inColumn]);
 						starveCount++;
 						break;
@@ -1768,10 +1421,8 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 				
 				if (move == 4)
 				{//Move south
-					//cout << "In south" << endl;
 					if (cBoard[inRow+1][inColumn] == NULL && flagSouth == false)
 					{
-						//cout << " In if 4" << endl;
 						std::swap(cBoard[inRow+1][inColumn],cBoard[inRow][inColumn]);
 						starveCount++;
 						break;
@@ -1782,7 +1433,6 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 						flagSouth = true;
 					}
 				}
-				//cout << "Still in 9" << endl;
 				// If west, north, east, and south cells are all occupied
 				if(flagWest && flagNorth && flagEast && flagSouth)
 				{
@@ -1800,9 +1450,7 @@ void DoodleBug::move(int inRow, int inColumn, Critter*** cBoard, int row, int co
 	if(survive > 0 && survive%8 == 0)
 	{ 
 		breed(inRow,inColumn,cBoard,row,col);
-		//cout <<"DoodleBug just called breed"<<endl;
 	}
-	//survive++; // this is to know if doodlebug can breed
 }
 
 
