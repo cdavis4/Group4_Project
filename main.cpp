@@ -3,7 +3,7 @@
 ** Authors: Group 4: Patrick Byrne, Carrie Davis, Elizabeth Graalum,
 ** Devon Rhodes, and Matthew Roemen
 ** Date: 7/27/2018
-** Description: This program runs a Predator-Prey Game made
+** Description: This program runs a Predator-Prey Simulation made
 **      up of Ants (prey) and DoodleBugs (predator).  The simulation
 **      takes place on a dynamic 2d array.  The Ant and
 **      DoodleBug classes inherit from a Critter class. 
