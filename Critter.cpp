@@ -9,11 +9,9 @@ using namespace std;
 //Default Constructor
 
 Critter::Critter()
-{
-   // this->row = inRow;
-   // this->column = inColumn;
-    survive = 0;
-    moveCount = 0;
+{	
+    	survive = 0;
+    	moveCount = 0;
 	starveCount = 0;
 }
 
@@ -26,19 +24,9 @@ Critter::Critter()
 
 void Critter::move(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
-	// to be overridden in the derived class
+	
 }
 
-/*************************************************
- * Ant::setPosition()
- * sets the row and column ant located
- **************************************************/
-/*void Critter::setPosition(int inRow, int inColumn)
-{
-    row = inRow;
-    column = inColumn;
-}
-*/
 /*************************************************
  * Ant::getSurvive()
  * gets survival days of Ant
@@ -60,8 +48,12 @@ int Critter::getStarveCount()
 
 void Critter::breed(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
-	// to be overridden in the derived class
+	
 }
+/*********************************************************
+starve checks if a doodlebug has eaten an ant in the past
+three steps, if not, it deletes the doodlebug.
+**********************************************************/
 
 void Critter::starve(int inRow, int inColumn, Critter*** cBoard, int row, int col)
 {
