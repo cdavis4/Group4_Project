@@ -38,7 +38,14 @@ Board::Board(int row, int col)
 }
 
 
-// Should ants be placed first?  Does this matter?
+/*********************************************************
+ * 			placeCritters
+ * A function that takes no parameters
+ * and returns nothing (void).  It
+ * loops through the Critter array and 
+ * adds ants and doodlebugs at random 
+ * locations.
+ ****************************************************/
 void Board::placeCritters()
 {
 
@@ -80,6 +87,17 @@ void Board::placeCritters()
 	
 }
 
+/*******************************************************
+ * 				 turn
+ * A function that takes no parameters
+ * and returns nothing (void).  It
+ * loops through the Critter array and 
+ * checks the cells to see if there is 
+ * a critter occupying the cell.  If there
+ * is, it calls the critter's move function
+ * and also handles breeding, eating and
+ * starving.
+ ******************************************************/
 void Board::turn()
 {
 	
@@ -96,12 +114,9 @@ void Board::turn()
 					
 					if(boardArray[i][j]->getType()== DOODLE)
 					{
-						//cout << "Before Doodle move at point " << i << ", " << j << endl;
+						
 						boardArray[i][j]->move(i,j,boardArray,row,col);
-						//cout << "After Doodle move at point " << i << ", " << j << endl;
-						//cout << boardArray[i][j]->getNewRow() << endl;
-						//cout << boardArray[i][j]->getNewCol() << endl;
-						//boardArray[i][j]->resetMoveCount();
+						
 								
 					}
 					
@@ -118,12 +133,9 @@ void Board::turn()
 					
 					if(boardArray[i][j]->getType()== ANT)
 					{
-						//cout << "Before Ant move at point " << i << ", " << j << endl;
+						
 						boardArray[i][j]->move(i,j,boardArray,row,col);
-						//cout << "After Ant move at point " << i << ", " << j << endl;
-						//cout << boardArray[i][j]->getNewRow() << endl;
-						//cout << boardArray[i][j]->getNewCol() << endl;
-						//boardArray[i][j]->resetMoveCount();		
+							
 					}
 				}
 						
@@ -136,16 +148,12 @@ void Board::turn()
 					if (boardArray[i][j]!= NULL)
 					{
 						
-						// Doodlebug moves first
+						
 						
 						if(boardArray[i][j]->getType()== DOODLE)
 						{
-							//cout << "Before Doodle move at point " << i << ", " << j << endl;
+							
 							boardArray[i][j]->starve(i,j,boardArray,row,col);
-							//cout << "After Doodle move at point " << i << ", " << j << endl;
-							//cout << boardArray[i][j]->getNewRow() << endl;
-							//cout << boardArray[i][j]->getNewCol() << endl;
-							//boardArray[i][j]->resetMoveCount();
 							
 						}
 					}
@@ -156,22 +164,15 @@ void Board::turn()
 		//cout << "outside move loop - resetting count" << endl;
 		for(int i = 0; i < row; i++)
 		{
-			
-			//cout << "Loop 1" << endl;
-			
 			for(int j = 0; j <col ; j++)
 			{
-				//cout << "Loop 2" << endl;
-				//cout << "Grid cell " << i << ", " << j << endl;
+				
 				if (boardArray[i][j] != NULL)
 				{
-					
-					
+							
 					// Reset the moveCount variable
-					//cout << "Did NULL check" << endl;
 					if(boardArray[i][j]->getType()== ANT || boardArray[i][j]->getType()== DOODLE)
 					{
-						//cout << "Did ANT check" << endl;
 						boardArray[i][j]->resetMoveCount();
 					}
 					
@@ -180,24 +181,19 @@ void Board::turn()
 		}
 			
 		cout << "Time step: " << x << "." << endl;
-		//Remove doodlebugs and this can show a test of ant movement.
+		
 		print();
-		
-		/* Uncomment to add a timer that pauses between each screen print
-		for (int k = 0; k < 147483647; k++)
-
-		{
-
-			__asm__("nop");
-
-		}
-		*/
-		
 		
 	}
 }
 
-
+/*******************************************************
+ * 				print
+ * A function that takes no parameters
+ * and returns nothing (void).  It
+ * prints out the contents of the 2d 
+ * Critter array displaying the board.
+ ******************************************************/
 void Board::print()
 {
 	std::cout << "\n" << std::endl; 
@@ -227,34 +223,84 @@ void Board::print()
 	}
 }
 
+/***************************************************************
+ *                   setSteps                  
+ * A setter function that takes an int parameter for the
+ * number of steps and returns nothing (void).
+ * It sets steps to the value passed to it.
+ **************************************************************/
 void Board::setSteps(int steps)
 {
 	this->steps = steps;
 }
+
+/***************************************************************
+ *                   setAnts                  
+ * A setter function that takes an int parameter for the
+ * number of ants and returns nothing (void).
+ * It sets the number of ants to the value passed to it.
+ **************************************************************/
 void Board::setAnts(int numAnts)
 {
 	this->numAnts = numAnts;
 }
+
+/***************************************************************
+ *                   setDoodleBugs                  
+ * A setter function that takes an int parameter for the
+ * number of doodlebugs and returns nothing (void).
+ * It sets the number of doodlebugs to the value passed to it.
+ **************************************************************/
 void Board::setDoodleBugs(int numDBugs)
 {
 	this->numDBugs = numDBugs;
 }
+
+/***************************************************************
+ *                   getSteps                  
+ * A getter function that takes no parameters and returns
+ * an int for the number of steps.
+ **************************************************************/
 int Board::getSteps()
 {
 	return steps;
 }
+
+/***************************************************************
+ *                   getAnts                 
+ * A getter function that takes no parameters and returns
+ * an int for the number of ants.
+ **************************************************************/
 int Board::getAnts()
 {
 	return numAnts;
 }
+
+/***************************************************************
+ *                   getDoodleBugs                  
+ * A getter function that takes no parameters and returns
+ * an int for the number of doodlebugs.
+ **************************************************************/
 int Board::getDoodleBugs()
 {
 	return numDBugs;
 }
 
+/***************************************************************
+ *                   getBoardArray                 
+ * A getter function that takes no parameters and returns
+ * the 2d array of Critter pointers.
+ **************************************************************/
+Critter*** Board::getBoardArray()
+{
+	return boardArray;
+}
 
-
-// Free up memory
+/***************************************************************
+ *                   Board Destructor                   
+ * A destructor that uses delete to free up the memory
+ * allocated to the the Critter array. 
+ **************************************************************/
 Board::~Board()
 {
 	for(int i=0 ;i < row ;i++ ) 
@@ -270,11 +316,4 @@ Board::~Board()
 	// frees up memory of outer array/pointer
 	delete[] boardArray;
 	boardArray = NULL;
-}
-
-
-
-Critter*** Board::getBoardArray()
-{
-	return boardArray;
 }
