@@ -18,6 +18,7 @@
 
 #include "Menu.hpp"
 #include "Board.hpp"
+#include "Critter.hpp"
 
 
 using std::cout;
@@ -40,89 +41,68 @@ Menu::Menu()
 	string choice;
 	
 	
+	
+	
 	cout << "********************************************************************" << endl;
 	cout << "*                                                                  *" << endl;
 	cout << "*                        PREDATOR-PREY GAME                        *" << endl; 
 	cout << "*                                                                  *" << endl;
 	cout << "********************************************************************" << endl;
 	cout << endl;
+	
+	cout << "\n\nDear grader:" << endl;
+	cout << "We attempted the Extra Credit menu options.\n\n" << endl;
 	 
 	cout << "This game is a 2-D predator-prey simulation." << endl;
 	cout << "It involves ants and doodlebugs that live on a 2-D grid." << endl;
 	cout << "The ants are prey and the doodlebugs are predators.\n" << endl;
 	cout << "Please choose from the following options: " << endl;
-	cout << "Press 1 to Start the Predator-Prey Game" << endl;
-	cout << "Press 2 to Quit" << endl;
-	getline(cin, choice);
-	while(1) 
-	{
-		// initial choice is whether to play the game or quit 
-		// this input is not validated by the inputVal function (since it's only 2 choices)
-		if(choice == "2") 
-		{
-			exit(0);
-		}
-		else if(choice == "1") 
-		{
-					
-			// Game options (steps, grid size, ants, doodlebugs)
-			// These inputs are validated by the inputVal function
-			cout << "Please choose from the following options: " << endl;
-			cout << endl;
-			
-			// mandatory user input
-			// question 1
-			cout << "Please enter the number of steps (not less than 1 or greater than 12000): " << endl;
-			cin.clear();
-			getline(cin, userInput);
-			steps = inputVal();
-			question++;
-			
-			// EC user input (assumes 1:20 ratio of doodlebugs to ants)
-			// question 2
-			cout << "Please enter the number of rows (not less than 10 or greater than 100): " << endl;
-			cin.clear();
-			getline(cin, userInput);
-			row = inputVal();
-			question++;
-			
-			// question 3
-			cout << "Please enter the number of columns (not less than 10 or greater than 100): " << endl;
-			cin.clear();
-			getline(cin, userInput);
-			col = inputVal();
-			question++;
-			
-			// question 4
-			maxAnt = 0.25*row*col; // calculate the max number of ants based on the size of the grid
-			maxDoodle = 0.01*row*col; // calculate the max number of ants based on the size of the grid
-			// the number of ants cannot be greater than 25% of the grid size (maxAnt)
-			cout << "Please enter the number of ants (not less than 1 or greater than " << maxAnt << ")" << endl;
-			cin.clear();
-			getline(cin, userInput);
-			ants = inputVal();
-			question++;
-			
-			// question 5
-			// the number of doodlebugs cannot be greater than 1% of the grid size (maxDoodle)
-			cout << "Please enter the number of doodlebugs (not less than 1 or greater than " << maxDoodle << ")" << endl; // only 1 doodlebug for a 10x10 board to start
-			cin.clear();
-			getline(cin, userInput);
-			doodlebugs = inputVal();
-			question++;
-			cin.clear();
-			break; // breaks out of loop when all inputs are entered correctly
-		}
-		else 
-		{
-			cout << "Invalid input.  Please enter 1 or 2." << endl;
-			cin.clear();
-			getline(cin, choice);
-		}
-	}
+	cout << endl;				
+	// Game options (steps, grid size, ants, doodlebugs)
+	// These inputs are validated by the inputVal function
 	
-	// Instantiate Board object here using constructor that takes row and col
 	
+	// mandatory user input
+	// question 1
+	cout << "Please enter the number of steps (not less than 1 or greater than 12000): " << endl;
+	cin.clear();
+	getline(cin, userInput);
+	steps = inputVal();
+	question++;
+	
+	// EC user input (assumes 1:20 ratio of doodlebugs to ants)
+	// question 2
+	cout << "Please enter the number of rows (not less than 10 or greater than 100): " << endl;
+	cin.clear();
+	getline(cin, userInput);
+	row = inputVal();
+	question++;
+	
+	// question 3
+	cout << "Please enter the number of columns (not less than 10 or greater than 100): " << endl;
+	cin.clear();
+	getline(cin, userInput);
+	col = inputVal();
+	question++;
+	
+	// question 4
+	maxAnt = 0.25*row*col; // calculate the max number of ants based on the size of the grid
+	maxDoodle = 0.02*row*col; // calculate the max number of ants based on the size of the grid
+	// the number of ants cannot be greater than 25% of the grid size (maxAnt)
+	cout << "Please enter the number of ants (not less than 1 or greater than " << maxAnt << ")" << endl;
+	cin.clear();
+	getline(cin, userInput);
+	ants = inputVal();
+	question++;
+	
+	// question 5
+	// the number of doodlebugs cannot be greater than 1% of the grid size (maxDoodle)
+	cout << "Please enter the number of doodlebugs (not less than 1 or greater than " << maxDoodle << ")" << endl; // only 1 doodlebug for a 10x10 board to start
+	cin.clear();
+	getline(cin, userInput);
+	doodlebugs = inputVal();
+	question++;
+	//cin.clear();
 	
 	Board board1(row, col);
 	board1.setSteps(steps);
@@ -130,43 +110,30 @@ Menu::Menu()
 	board1.setDoodleBugs(doodlebugs);
 	board1.placeCritters();
 	board1.print();
-	//cBoard = board1.getBoardArray();
+	
 	board1.turn();
 	
-	/*for(int i =0; i < steps; i++)
-	{for(int i = 0; i < row; i++)
-		for(int j = 0; j <col ; j++)
+	while(1)
+	{
+		cout << "Would you like to continue running the simulation?" << endl;
+		//cout << "Press 'q' to Quit." << endl;
+		
+		cout << "Please enter the number of steps to keep running the simulation or press 'q' to quit. " << endl;
+		cin.clear();
+		getline(cin, userInput);
+		
+		if(userInput == "q" || userInput == "Q")
 		{
-			if (cBoard[i][j]!= NULL)
-			{
-				
-				if(cBoard[i][j]->getType()== ANT)
-				{
-					cBoard[i][j]->move(i,j,cBoard,row,col);
-				}
-			}
+			exit(0);
 		}
-		for(int i = 0; i < row; i++)
-			for(int j = 0; j <col ; j++)
-			{
-				if (cBoard[i][j]!= NULL)
-				{
-						
-					if(cBoard[i][j]->getType()== ANT)
-					{
-						cBoard[i][j]->resetMoveCount();
-					}
-				}
-					
-			}
-		board1.print();
-		}
-		Remove doodlebugs and this can show a test of ant movement.
-		*/
-
+		question = 1;
+		steps = inputVal();
+		board1.setSteps(steps);
+		board1.turn();
+		
+	}
+	
 }
-
-
 
 // steps getter
 int Menu::getSteps()
@@ -287,7 +254,3 @@ int Menu::inputVal()
 	}	
 	return userNum; // this is the actual validated number asked for in the menu
 }
-
-
-
-
