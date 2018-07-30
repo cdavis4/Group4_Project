@@ -19,6 +19,7 @@ Board::Board(int row, int col)
 	this -> row = row;
 	this -> col = col;
 	
+	stepNumber = 1;
 	
 	// create 2d dynamic array of Critter pointers
 	boardArray = new Critter **[row];
@@ -180,9 +181,11 @@ void Board::turn()
 			}
 		}
 			
-		cout << "Time step: " << x << "." << endl;
+		cout << "Time step: " << stepNumber << "." << endl;
 		
 		print();
+		//update stepNumber so simulation knows what step it's on.
+		stepNumber++;
 		
 	}
 }
