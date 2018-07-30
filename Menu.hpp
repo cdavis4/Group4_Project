@@ -16,7 +16,6 @@ class Menu
 		int col;
 		int ants;
 		int doodlebugs; 
-		//Critter*** cBoard;
 		
 	
 	public:
