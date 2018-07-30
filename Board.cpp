@@ -181,7 +181,7 @@ void Board::turn()
 			}
 		}
 			
-		cout << "Time step: " << stepNumber << "." << endl;
+		cout << "\n\nTime step: " << stepNumber << endl;
 		
 		print();
 		//update stepNumber so simulation knows what step it's on.
@@ -199,7 +199,7 @@ void Board::turn()
  ******************************************************/
 void Board::print()
 {
-	std::cout << "\n" << std::endl; 
+	std::cout << std::endl; 
 	for (int i = 0; i < row; i++)
 	{
 		for ( int j = 0; j < col; j++)
