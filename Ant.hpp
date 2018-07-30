@@ -17,7 +17,6 @@ private:
 
 public:
     Ant();
-    ~Ant();
     void move(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     void breed(int inRow, int inColumn, Critter*** cBoard, int row, int col);
     TYPE getType(); 
